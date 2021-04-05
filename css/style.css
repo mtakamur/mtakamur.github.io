@@ -1,456 +1,461 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
-@import url(https://fonts.googleapis.com/css?family=Pacifico);
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="alternate stylesheet" type="text/css" href="resource://gre-resources/plaintext.css"
+      title="長い行を折り返す">
+  </head>
+  <body>
+    <pre>@charset "utf-8";
 
-/* reset */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
-address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
-ul{list-style:none;}
-table{border-collapse:collapse;border-spacing:0;}
-caption,th{text-align:left;}
-q:before,q:after{content:'';}
-object,embed{vertical-align:top;}
-legend{display:none;}
-h1,h2,h3,h4,h5,h6{font-size:100%;}
-img,abbr,acronym,fieldset{border:0;}
 
-body{
-	font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
-	font-weight: 300;
-	-webkit-text-size-adjust:100%;
-	overflow-x: hidden;
-	color: #000;
-	background: #fff;
+/*PC・タブレット・スマホ共通設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #9c9c93;	/*全体の文字色*/
+	font-family: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
+	font-size: 14px;	/*文字サイズ*/
+	line-height: 2;		/*行間*/
+	background: #fff url(../images/bg.jpg) fixed;	/*背景色*/
+	-webkit-text-size-adjust: none;
 }
-
-a{
-	color: #0066ff;
-	text-decoration: none;
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form {margin: 0px;padding: 0px;font-size: 100%;}
+ul {list-style-type: circle; padding-left: 40px; padding-bottom: 15px;}
+ol {padding-left: 40px;padding-bottom: 15px;}
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+a:hover img {opacity: 0.6}
+table {
+	width: 60%;
+	max-width: 1000px;
+	border-collapse:collapse;
+	font-size: 100%;
+	border-spacing: 0;
 }
+iframe {width: 100%;}
 
-a:hover, .active{
-  text-decoration: underline;
-}
+/*h1見出しタグの設定はタイトル専用*/
 
-a:active, a:focus,input:active, input:focus{outline:0;}
-
-
-/* ヘッダー
-------------------------------------------------------------*/
-#header{
-	text-align: center;
-}
-
-#header h1{
-	padding-top: 60px;
-}
-
-#mainnav a{
-	color: #000;
-}
-
-#mainImg{
-	position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 528px;
-}
-
-#mainImg img{
-	position: absolute;
-  left: 50%;
-	max-width: 1280px;
-  width: 1280px;
-  height: 528px;
-  margin-left: -640px;
-}
-
-
-/* フッター
-------------------------------------------------------------*/
-#footer{
+/*h2見出しタグの設定
+---------------------------------------------------------------------------*/
+h2 {
 	clear: both;
-	padding: 50px 10px 50px 0;
+	margin-bottom: 15px;
+	color: #fff;			/*文字色*/
+	padding: 5px 20px;		/*上下、左右への余白*/
+	background: #9c9c93;	/*背景色*/
+	border-radius: 4px;		/*角丸のサイズ。大きくすれば角の丸みが大きくなる。角丸が不要ならこの１行削除。*/
+}
+
+/*h3見出しタグの設定
+---------------------------------------------------------------------------*/
+h3 {
+	clear: both;
+	margin-bottom: 15px;
+	padding: 3px 20px;			/*上下、左右への余白*/
+	border-radius: 4px;			/*角丸のサイズ。大きくすれば角の丸みが大きくなる。角丸が不要ならこの１行削除。*/
+	border: 2px solid #9c9c93;	/*枠線の幅、線種、色*/
+}
+
+/*段落タグ設定
+---------------------------------------------------------------------------*/
+p {
+	padding: 0px 20px 20px;	/*上、左右、下への余白*/
+}
+
+/*Figure floating configuration
+---------------------------------------------------------------------------*/
+figure img{
+	float: left;
+	width: 20%;
+}
+
+.src {
+	margin: 0% auto;
+	padding: 0%;
+	clear: both;
+	width: 100%;
+	border: solid white;
+	overflow-x: scroll;
+	overflow-y: scroll;
+	background: black;
+	color: rgb(60, 255, 60);
+}
+
+.caption {
 	text-align: center;
-	font-size: 12px;
+	color: black;
+	margin-top: 2px;
+	margin-bottom: 2em;
 }
 
+/* Print every linemunber in prettyprint */
+/*
+.prettyprint ol.linenums > li {
+  list-style-type: decimal;
+}
+*/
 
-/* 共通
-------------------------------------------------------------*/
-
-img{
-	max-width: 100%;
-	height: auto;
+/*リンク設定
+---------------------------------------------------------------------------*/
+a {
+	color: #9c9c93;	/*リンクテキストの色*/
+	-webkit-transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+	transition: 0.5s;			/*同上*/
+}
+a:hover {
+	color: #d50f26;	/*マウスオン時の文字色*/
 }
 
-section{
-	clear:both;
-	padding-top: 70px;
+/*コンテナー（ホームページを囲む一番外側のブロック）
+---------------------------------------------------------------------------*/
+#container {
+	width: 50%;					/*ブロックの幅を画面の50%にする設定。*/
+	max-width: 1000px;			/*上のwidth指定の追加設定。幅1000pxを最大幅に設定し、それ以上広げない。*/
+	margin: 5% auto 0px;		/*HP画面の左右中央に表示させる設定。最初の5%は上(コンテナーの外側)に空ける余白の指定。*/
+	background: #fff;					/*背景色（古いブラウザ用）*/
+	background: rgba(255,255,255,0.5);	/*背景色。rgba値は左３つが色指定(この場合は白)で最後の小数点が透明度。*/
+	border-radius: 10px;	/*角丸のサイズ。大きくすれば角の丸みが大きくなる。角丸が不要ならこの１行削除。*/
+	padding: 4%;			/*ブロック内の余白*/
+	-webkit-box-shadow: 0px 0px 6px rgba(0,0,0,0.3);	/*影の設定。右へ・下へ・ぼかし幅・色(rgba)の設定。rgba値は左３つが色指定(この場合は黒)で最後の小数点が透明度。*/
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);			/*同上*/
+	overflow: hidden;
 }
 
-section h2{
-	font-family: 'Pacifico', cursive;
-	width: 60%;
-	margin: 0 auto 40px;
-	font-size: 22px;
-	font-weight:normal;
+#menulist
+{
+	position: fixed;
+	right: 5%;
+	width: 15%;
+	margin: auto;
+	float: right;
+	color: #fff;
+	background: #9c9c93;
+	border-top: solid #9c9c93;
+	border-bottom: solid #9c9c93;
+	border-radius: 10px;
+}
+
+/*ヘッダー（ロゴが入った最上段のブロック）
+---------------------------------------------------------------------------*/
+/*headerブロック*/
+header {
+	text-align: center;	/*ヘッダーブロックの内容をセンタリングする設定*/
+}
+/*ロゴ画像設定*/
+#logo  img {
 	text-align: center;
-	background: url(../images/borderBlack.png) repeat-x 0 50%;
-	background-size: 1px 1px;
+	width: 80%;			/*画像幅を上で設定している「container」の80%にする設定。*/
+	max-width: 500px;	/*上の行の指定だけだと大きくなりすぎる場合があるので、最大幅(max-width)を500pxに指定。これ以上大きくならない。*/
 }
 
-section h2 span {
-	background: #fff;
-	padding: 0 80px;
+/*メニュー
+---------------------------------------------------------------------------*/
+/*メニュー全体を囲むブロック*/
+#menubar {
+	margin: 50px 0px;	/*メニューブロックの上下(ブロックの外側)に空けるスペース*/
+	border-top: 3px solid #9c9c93;		/*上の線の幅、線種、色*/
+	border-bottom: 3px solid #9c9c93;	/*下の線の幅、線種、色*/
+	text-align: center;	/*メニューブロックの内容をセンタリングする設定*/
+}
+/*メニュー１個あたりの設定*/
+#menubar li {
+	display: inline;	/*横並びにする設定*/
+}
+#menubar li a {
+	text-decoration: none;
+	padding: 10px 20px;				/*10pxは上下に、20pxは左右へ空ける余白指定。*/
+	color: #9c9c93;					/*文字色*/
+	font-size: 20px;				/*文字サイズを少し大きくする設定。お好みで変更して下さい。*/
+	letter-spacing: 0.1em;			/*文字感覚を少し広くする設定。広くしないでいいなら、この１行を削除。*/
+}
+/*マウスオン時の設定*/
+#menubar li a:hover {
+	background: #9c9c93;	/*背景色*/
+	color: #fff;			/*文字色*/
 }
 
-.inner{
-	width: 94%;
-	margin: 0 auto;
-	padding-bottom: 50px;
+/* Menu grid
+---------------------------------------------------------------------------*/
+#menuGrid {
+	margin: 50px 0px;	/*メニューブロックの上下(ブロックの外側)に空けるスペース*/
+	border-top: 3px solid #9c9c93;		/*上の線の幅、線種、色*/
+	border-bottom: 3px solid #9c9c93;	/*下の線の幅、線種、色*/
+	text-align: center;	/*メニューブロックの内容をセンタリングする設定*/
 }
 
-.innerS{
-	width: 60%;
-	margin: 0 auto;
-	padding-bottom: 80px;
+#menuGrid li {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+#menuGrid li a {
+	text-decoration: none;
+	padding: 10px 20px;				/*10pxは上下に、20pxは左右へ空ける余白指定。*/
+	color: #9c9c93;					/*文字色*/
+	font-size: 20px;				/*文字サイズを少し大きくする設定。お好みで変更して下さい。*/
+	letter-spacing: 0.1em;			/*文字感覚を少し広くする設定。広くしないでいいなら、この１行を削除。*/
+}
+/*マウスオン時の設定*/
+#menuGrid li a:hover {
+	background: #9c9c93;	/*背景色*/
+	color: #fff;			/*文字色*/
+}
+
+/* Menu grid by <div> tag
+/* Use parengGridLayout for parent <div> class, gridContent for children.
+/* Each item on grid layout consists of image with <img>, title with <a>, and discription with <p> tag.
+---------------------------------------------------------------------------*/
+.parentGridLayout{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+}
+
+.gridContent{
+	display: grid;
+	height: 200px;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 1fr 3fr;
+}
+
+.gridContent img{
+	grid-column: 1;
+	grid-row: 1 / 3;
 }
 
 
-/* SEC02 Gallery
-------------------------------------------------------------*/
-#sec02{
-	padding: 0 !important;
+.gridContent a{
+	grid-column: 2;
+	grid-row: 1;
 }
 
-#sec02 header{
+.gridContent p{
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.gridContent:hover{
+	background-color: #9c9c93;
+	color: #ffff;
+}
+
+/*Galleryページ
+---------------------------------------------------------------------------*/
+/*画像の設定*/
+.list figure img {
+	float: left;	/*左に回り込みさせる設定*/
+	width: 18%;		/*画像の幅*/
+	margin: 0px 1% 15px;	/*画像の外側に空けるスペース。左から、上(0px)、左右(1%)、下(15px)への設定。*/
+	border-radius: 50%;		/*角丸のサイズ。50%にすると円形になる。正方形がいいなら、この１行削除する。*/
+}
+
+/*フッター(ページ最下部のcopyrightのパーツ)設定
+---------------------------------------------------------------------------*/
+footer {
+	clear: both;
+	text-align: center;	/*文字をセンタリング*/
+	padding: 10px 0px;	/*左から、上下、左右への余白*/
+	color: #fff;		/*文字色*/
+	text-shadow: 1px 1px rgba(0,0,0,0.8);	/*テキストの影。右へ、下へ、色(rgba)の設定。rgba値は左３つが色指定(この場合は黒)で最後の小数点が透明度。*/
+}
+footer a {
+	text-decoration: none;
+	border: none;
+	color: #fff;	/*文字色*/
+}
+footer .pr {
+	display: block;
+}
+
+/*トップページ内「更新情報・お知らせ」ブロック
+---------------------------------------------------------------------------*/
+/*ブロック全体の設定*/
+#new dl {
+	padding-left: 20px;
+	margin-bottom: 15px;
+}
+/*日付設定*/
+#new dt {
+	font-weight: bold;	/*太字にする設定。標準がいいならこの行削除。*/
+	float: left;
+	width: 8em;
+}
+/*記事設定*/
+#new dd {
+	padding-left: 8em;
+}
+
+/* New icon*/
+.newicon{
+	background-color: #d50f26;
+	color: #fff;
+	font-size: 70%;
+	line-height: 1.5;
+	padding: 1px 3px;
+	border-radius: 5px;
+	margin: 0px 3px;
+	vertical-align: center;
+}
+
+/* Configurations for diary page
+---------------------------------------------------------------------------*/
+.date {
+	color: dimgray;
+	font-size: 15px;
+}
+
+/*テーブル
+---------------------------------------------------------------------------*/
+/*tテーブルブロック設定*/
+.ta1 {
+	width: 100%;
+	margin-bottom: 15px;
+}
+.ta1, .ta1 td, .ta1 th {
+	border: 2px solid #9c9c93;	/*テーブルの枠線の幅、線種、色*/
+	padding: 10px;			/*テーブル内の余白*/
+	word-break: break-all;
+}
+/*テーブル１行目に入った見出し部分*/
+.ta1 th.tamidashi {
+	width: auto;
+	text-align: left;	/*左よせ*/
+	background: #eee;	/*背景色*/
+}
+/*テーブルの左側ボックス*/
+.ta1 th {
+	width: 30%;	/*幅*/
+	text-align: center;	/*センタリング*/
+}
+
+/*その他
+---------------------------------------------------------------------------*/
+.look {background: #333; color: #fff;padding: 5px 10px;border-radius: 4px;}
+.mb15,.mb1em {margin-bottom: 15px;}
+.color1 {color:#d50f26;}
+.pr {font-size: 10px;}
+
+/*コメント投稿フレーム設定*/
+.comment_input_frame {
+	width: 90%;
+	border: solid 1px #00ccff;
+}
+
+.comment_input_button {
+	width: 9%;
+}
+
+.comment_view_frame {
+	font-size: 13px;
+	line-height: 15px;
+	color: #666699;
+	width: 100%;
+	height: 100%;
+	border: solid 1px #00ccff;
+	padding: 8px;
+	overflow-y: scroll;
+	display: none;
+}
+.comment_view_inner {
+	width: 100%;
+	height: 100%;
+	frameborder: 0px;
+	border: 0px;
+	padding: 0px;
+	overflow: hidden;
 	display: none;
 }
 
-#gallery li{
-	float: left;
-	width: calc(100%/3);
-	line-height: 0;
+/*画面幅600px以下の設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:600px){
+
+/*スマホ画面用コンテナ*/
+#container {
+	width: 94%;					/*ブロックの幅を画面の50%にする設定。*/
+	max-width: 570;			/*上のwidth指定の追加設定。幅1000pxを最大幅に設定し、それ以上広げない。*/
+	margin: 3% auto 0px;		/*HP画面の左右中央に表示させる設定。最初の5%は上(コンテナーの外側)に空ける余白の指定。*/
+	background: #fff;					/*背景色（古いブラウザ用）*/
+	background: rgba(255,255,255,0.5);	/*背景色。rgba値は左３つが色指定(この場合は白)で最後の小数点が透明度。*/
+	border-radius: 10px;	/*角丸のサイズ。大きくすれば角の丸みが大きくなる。角丸が不要ならこの１行削除。*/
+	padding: 3%;			/*ブロック内の余白*/
+	-webkit-box-shadow: 0px 0px 6px rgba(0,0,0,0.3);	/*影の設定。右へ・下へ・ぼかし幅・色(rgba)の設定。rgba値は左３つが色指定(この場合は黒)で最後の小数点が透明度。*/
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);			/*同上*/
+	overflow: scroll;
+	/*overflow: hidden;*/
 }
 
-#gallery img{
+/*メニュー
+---------------------------------------------------------------------------*/
+/*メニュー全体を囲むブロック*/
+#menubar {
 	width: 100%;
-	height: auto;
+	margin: 15px 0px;	/*メニューブロックの上下(ブロックの外側)に空けるスペース*/
+	border-bottom: none;	/*共通設定で指定していた下線をなしにする設定*/
 }
+#menubar ul {list-style-type: none; padding: 0% 5%;} /* Configuration for itemizing in menu bar */
 
-
-/* SEC03 PROJECT
-------------------------------------------------------------*/
-#sec03 img{
-	width: 100%;
-	margin-bottom: 30px;
-}
-
-
-/* SEC04 BRAND
-------------------------------------------------------------*/
-.col3 img{
-	display: block;
-	margin: 0 auto 5px;
-}
-
-.col3 li{
-	line-height: 2.0;
-}
-
-.col3 .img{
-	padding: 80px 50px;
-	margin-bottom: 40px;
-	line-height: 0 !important;
-	background: #f6f6f6;
-}
-
-#sec04_02{
-	background: url(../images/bgSec04.jpg) no-repeat 100% 100% fixed;
-	background-size: cover;
-	-webkit-background-size: cover;
+/*メニュー１個あたりの設定*/
+#menubar li {
 	text-align: center;
-	padding: 220px 20px;
+	display: block;	/*メニューを「横並び」から「縦並び」に変更する設定*/
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border-bottom: 3px solid #9c9c93;	/*下の線の幅、線種、色を追加指定*/
 }
 
-#sec04_02 img{
-	width: auto;
+/*Galleryページ
+---------------------------------------------------------------------------*/
+/*画像の設定*/
+.list figure img {
+	width: 48%;		/*画像の幅*/
 }
 
-
-/* SEC05 COMPANY
-------------------------------------------------------------*/
-#sec05 p{
-	margin-bottom: 5px;
+/*トップページ内「更新情報・お知らせ」ブロック
+---------------------------------------------------------------------------*/
+#new h2.open {
+	background: #9c9c93 url(../images/btn_minus.png) no-repeat right center/34px 34px;
+}
+#new h2.close {
+	background: #9c9c93 url(../images/btn_plus.png) no-repeat right center/34px 34px;
 }
 
-.col2 li{
-	display: inline-block;
+/*テーブル
+---------------------------------------------------------------------------*/
+/*tテーブルブロック設定*/
+.ta1, .ta1 td, .ta1 th {
+	padding: 5px;			/*テーブル内の余白*/
+}
+
+table {
+	width: 95%;
+	max-width: 570;
+	border-collapse:collapse;
+	font-size: 100%;
+	border-spacing: 0;
+}
+iframe {
 	width: 100%;
-	margin: 20px 0;
 }
 
-#sns img{
-	padding: 35px 10px 5px 0;
+figure {
+	text-align: center;
 }
 
-#sns a:hover img{
-	opacity: .8;
+figure img{
+	margin: 1% 33.33%;
+	width: 33.33%;
 }
 
-#map{
-	position: relative;
-	padding-bottom: 75%;
-	height: 0;
-	overflow: hidden;
-	z-index: 0;
+figure br {
+	clear: both;
 }
 
-#map iframe{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100% !important;
-	height: 100% !important;
-	border: 0;
 }
-
-
-
-/* RESPONSIVE 設定
-------------------------------------------------------------*/
-
-@media only screen and (min-width: 1200px){
-	.inner{
-		width: 1024px;
-	}
-}
-
-@media only screen and (min-width: 800px){
-	body{
-		font-size:14px;
-	}
-	
-  a#menu{
-		display:none;
-	}	
-
-	.panel{
-		display:block !important;
-	}
-
-	#mainnav li{
-		display: inline-block;
-		padding: 50px 25px;
-		font-size: 15px;
-	}
-	
-	
-	/* SEC03 PROJECT
-	-----------------*/
-	.col3{
-		text-align: center;
-	}
-
-	.col3 li{
-		display: inline-block;
-		width: 28%;
-		padding: 0 2.5% 50px;
-		margin-bottom: 0;
-		vertical-align: top;
-		text-align: left;
-	}
-	
-  #footer{
-		padding: 30px 10px 70px 0;
-	}
-}
-
-
-@media only screen and (min-width: 641px){
-	.col2 li{
-		width: 60%;
-		vertical-align: top;
-	}
-	.col2 li:first-child{
-		width: 35%;
-		padding-right: 4%;
-	}
-}
-
-@media only screen and (max-width: 640px){
-	.innerS{
-		width: 94%;
-		padding-bottom: 70px;
-	}
-	.col3 li{
-		line-height: 1.7;
-	}
-	.col3 img{
-		margin: 0 auto;
-	}
-	.col3 .img{
-		padding: 30px;
-		margin-bottom: 20px;
-	}
-	#gallery li{
-		float: none;
-		width: 100%;
-	}
-	#map iframe{
-		width: 96% !important;
-		left: 2%;
-	}
-	#sec04_02{
-		padding: 50px 20px;
-	}
-}
-
-@media only screen and (max-width: 799px){
-	#header{
-		position: fixed;
-		width: 100%;
-		z-index: 500;
-	}
-	
-	#headerWrap{
-		position: relative;
-		width: 100%;
-		height: 70px;
-		background: #fff;
-		border-bottom: 1px solid #ccc;
-	}
-	
-	#header h1{
-		padding-top: 10px;
-	}
-	
-	#header h1 img{
-		margin-top: 3px;
-		max-height: 45px;
-		width: auto !important;
-	}
-
-  a#menu{
-  	display: inline-block;
-  	position: relative;
-  	width: 40px;
-  	height: 40px;
-  	margin: 10px;
-	}
-
-	#menuBtn{
-  	display: block;
-  	position: absolute;
-  	top: 60%;
-  	left: 50%;
-  	width: 18px;
-  	height: 2px;
-  	margin: -1px 0 0 -7px;
-  	background: #000;
-  	transition: .2s;
-	}
-
-	#menuBtn:before, #menuBtn:after{
-  	display: block;
-  	content: "";
-  	position: absolute;
-  	top: 50%;
-  	left: 0;
-  	width: 18px;
-  	height: 2px;
-  	background: #000;
-  	transition: .3s;
-	}
-
-	#menuBtn:before{
-  	margin-top: -7px;
-	}
-
-	#menuBtn:after{
-  	margin-top: 5px;
-	}
-
-	a#menu .close{
-  	background: transparent;
-	}
-
-	a#menu .close:before, a#menu .close:after{
-  	margin-top: 0;
-	}
-
-	a#menu .close:before{
-  	transform: rotate(-45deg);
-  	-webkit-transform: rotate(-45deg);
-	}
-
-	a#menu .close:after{
-  	transform: rotate(-135deg);
-  	-webkit-transform: rotate(-135deg);
-	}
-
-	.panel{
-		width: 100%;
-		display: none;
-		overflow: hidden;
-		position: relative;
-		left: 0;
-		top: 0;
-		z-index: 100;
-	}
-
-	#mainnav{
-		position: absolute;
-		top: 0;
-		width: 100%;
-		text-align: right;
-		z-index:500;
-	}
-
-	#mainnav ul{
-		border-bottom: 1px solid #ccc;
-		background: #fff;
-		text-align: left;
-	}
-
-	#mainnav li a{
-		position: relative;
-		display:block;
-		padding:15px 25px;
-		border-bottom: 1px solid #ccc;
-		color: #000;
-		font-weight: 400;
-	}
-
-	#mainnav li a:before{
-		display: block;
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: 5px;
-		width: 6px;
-		height: 6px;
-		margin: -4px 0 0 0;
-		border-top: solid 2px #000;
-		border-right: solid 2px #000;
-		-webkit-transform: rotate(45deg);
-		transform: rotate(45deg);
-	}
-	#mainImg{
-		padding-top: 60px;
-		z-index: -100;
-	}
-	.col3 li{
-		margin: 50px auto 0 auto;
-		display: block;
-	}
-	section{
-		padding-top: 50px;
-	}
-	section h2{
-		margin: 0 auto 20px;
-	}
-	section h2 span {
-		padding: 0 30px;
-	}
-}
+</pre>
+</body>
+</html>

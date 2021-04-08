@@ -61,7 +61,12 @@ iframe {
 	width: 100%;
 }
 
-/*h1見出しタグの設定はタイトル専用*/
+/*h1見出しタグの設定
+---------------------------------------------------------------------------*/
+h1 {
+	stroke-linecap: initial;
+}
+
 
 /*h2見出しタグの設定
 ---------------------------------------------------------------------------*/
@@ -253,45 +258,6 @@ header {
 	/*文字色*/
 }
 
-/* Menu grid
----------------------------------------------------------------------------*/
-#menuGrid {
-	margin: 50px 0px;
-	/*メニューブロックの上下(ブロックの外側)に空けるスペース*/
-	border-top: 3px solid #9c9c93;
-	/*上の線の幅、線種、色*/
-	border-bottom: 3px solid #9c9c93;
-	/*下の線の幅、線種、色*/
-	text-align: center;
-	/*メニューブロックの内容をセンタリングする設定*/
-}
-
-#menuGrid li {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-}
-
-#menuGrid li a {
-	text-decoration: none;
-	padding: 10px 20px;
-	/*10pxは上下に、20pxは左右へ空ける余白指定。*/
-	color: #9c9c93;
-	/*文字色*/
-	font-size: 20px;
-	/*文字サイズを少し大きくする設定。お好みで変更して下さい。*/
-	letter-spacing: 0.1em;
-	/*文字感覚を少し広くする設定。広くしないでいいなら、この１行を削除。*/
-}
-
-/*マウスオン時の設定*/
-
-#menuGrid li a:hover {
-	background: #9c9c93;
-	/*背景色*/
-	color: #fff;
-	/*文字色*/
-}
-
 /* Menu grid by <div> tag
 /* Use parengGridLayout for parent <div> class, gridContent for children.
 /* Each item on grid layout consists of image with <img>, title with <a>, and discription with <p> tag.
@@ -311,7 +277,7 @@ header {
 	display: grid;
 	align-self: initial;
 	grid-template-columns: 1fr 3fr;
-	height: 175px;
+	height: 85%;
 	grid-template-areas: "image description"
 }
 

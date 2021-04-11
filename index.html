@@ -19,64 +19,51 @@
 
 <body>
   <div id="container">
-    <!--
     <header>
-      <h1 id="logo" style="text-align: center;"><a href="/index.html"> <img src="/images/logo.png"
-            style="width: 150px; height: 46px;"></a></h1>
+      <div id="logo" style="text-align: center;"><a href="/index.html"> <img src="/images/logo.png"
+            style="width: 150px; height: 46px;"></a></div>
     </header>
-  -->
-    <div class="parentGridLayout">
-      <a class="gridContent" href="./c_c++/index.html">
-        <img class="image" src="./images/logos/cpp.png" style="vertical-align: bottom" />
-        <div class="contentDescription">
-          <p class="title">C/C++</p>
-          <p class="description">Test description 1</p>
-        </div>
-      </a>
 
-      <a class="gridContent" href="./root_cern/index.html">
-        <img class="image" src="./images/logos/root_cern.png" style="vertical-align: bottom" />
-        <div class="contentDescription">
-          <p class="title">ROOT</p>
-          <p class="description"></p>
-        </div>
-      </a>
+    <h1 class="container-title">Contents</h1>
+    <div class="grid-layout-container">
+      <div class="grid-content">
+        <a class="content-anchor" href="./cpp/"></a>
+        <img class="content-image" src="./images/logos/cpp.png" />
+        <p class="content-title">C/C++</p>
+        <p class="content-description">難しいらしい。</p>
+      </div>
 
+      <div class="grid-content">
+        <a class="content-anchor" href="./cpp/"></a>
+        <img class="content-image" src="./images/logos/cs.png" />
+        <p class="content-title">C#</p>
+        <p class="content-description">++C++</p>
+      </div>
 
-      <a class="gridContent" href="">
-        <img class="image" src="./images/logos/kotlin.png" style="vertical-align: bottom" />
-        <div class="contentDescription">
-          <p class="title">Kotlin</p>
-          <p class="description">Kotlin</p>
-        </div>
-      </a>
+      <div class="grid-content">
+        <a class="content-anchor" href="./cpp/"></a>
+        <img class="content-image" src="./images/logos/root_cern.png" />
+        <p class="content-title">ROOT</p>
+        <p class="content-description">CERNで開発されている統計解析フレームワーク。C++で動いてくれます。</p>
+      </div>
 
-      <a class="gridContent" href="">
-        <img class="image" src="./images/logos/cs.png" style="vertical-align: bottom" />
-        <div class="contentDescription">
-          <p class="title">C#</p>
-          <p class="description">++ of C++</p>
-        </div>
-      </a>
+      <div class="grid-content">
+        <a class="content-anchor" href="./cpp/"></a>
+        <img class="content-image" src="./images/logos/kotlin.png" />
+        <p class="content-title">Kotlin</p>
+        <p class="content-description">CERNで開発されている統計解析フレームワーク。C++で動いてくれます。</p>
+      </div>
 
-      <a class="gridContent" href="">
-        <img class="image" src="./images/logos/android.png" style="vertical-align: bottom" />
-        <div class="contentDescription">
-          <p class="title">Android</p>
-          <p class="description">NONE</p>
-        </div>
-      </a>
+      <div class="grid-content">
+        <a class="content-anchor" href="./cpp/"></a>
+        <img class="content-image" src="./images/logos/android.png" />
+        <p class="content-title">Android</p>
+        <p class="content-description">スマホやテレビ、今やいろんなところで頑張ってます。</p>
+      </div>
     </div>
-    <h1>aaabb</h1>
+
     <h2>これはなに？</h2>
-    <h3>aaa</h3>
-    <!--
-    <p>色々な分野の個人的な備忘録です。どどど初心者からエンジニアになった自分がつまずいた部分を、特にしっかりとまとめる
-      予定です。同じく初心者の方の疑問解消に少しでも役立てれば幸いです。</p>
-    <p>基本的に筆者自身は賢くないので、勉強にせよプログラミングにせよ、これらのこと(だけではないですが…)に苦手意識を持っている方の気持ちはわ
-      かっているつもりです。このWebサイトが、少しでもこのような人たちの支えになれればと思っております。</p>
-    <p>どれくらいのペースで書くか全く決めていないのですが、日記的なものも書いていけたら良いなと思っています。よろしくお願いいたします。</p>
-    <h2>ソースコードのダウンロード</h2>
+    <p>色々な分野の個人的なノートです。</p>
     <p>このページで紹介されているコードは、サンプルとしてgithubにて公開しております。必要であればどんな用途でもご自由にお使いくださ
       い。コード の改善点等コメントをいただければ、なおありがたいです。</p>
     <h2>筆者について</h2>
@@ -104,18 +91,18 @@
       </dl>
     </div>
   </div>
--->
-    <!--/container-->
-    <footer>
-      <small>Copyright© <a href="index.html">πの実</a> All Rights Reserved.</small>
-      <span class="pr">《<a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
-    </footer>
-    <!--スマホ用更新情報　600px以下-->
-    <script type="text/javascript">
-      if (OCwindowWidth() <= 600) {
-        open_close("newinfo_hdr", "newinfo");
-      }
-    </script>
+
+  <!--/container-->
+  <footer>
+    <small>Copyright© <a href="index.html">πの実</a> All Rights Reserved.</small>
+    <span class="pr">《<a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+  </footer>
+  <!--スマホ用更新情報　600px以下-->
+  <script type="text/javascript">
+    if (OCwindowWidth() <= 600) {
+      open_close("newinfo_hdr", "newinfo");
+    }
+  </script>
   </div>
 </body>
 

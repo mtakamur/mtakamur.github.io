@@ -64,9 +64,11 @@ iframe {
 /*h1見出しタグの設定
 ---------------------------------------------------------------------------*/
 h1 {
-	stroke-linecap: initial;
+	border-bottom:3px #9c9c93 solid;
+	font-size: 25pt;
+	color: #9c9c93;
+	margin-bottom: 1em;
 }
-
 
 /*h2見出しタグの設定
 ---------------------------------------------------------------------------*/
@@ -162,7 +164,7 @@ a:hover {
 ---------------------------------------------------------------------------*/
 
 #container {
-	width: 90%;
+	width: 50%;
 	/*ブロックの幅を画面の50%にする設定。*/
 	margin: 2% auto 0px;
 	/*HP画面の左右中央に表示させる設定。最初の5%は上(コンテナーの外側)に空ける余白の指定。*/
@@ -200,13 +202,14 @@ a:hover {
 /*headerブロック*/
 
 header {
+	margin: 0em 0em 3em 0em;
 	text-align: center;
 	/*ヘッダーブロックの内容をセンタリングする設定*/
 }
 
 /*ロゴ画像設定*/
 
-#logo img {
+header #logo img {
 	text-align: center;
 	width: 80%;
 	/*画像幅を上で設定している「container」の80%にする設定。*/
@@ -262,60 +265,68 @@ header {
 /* Use parengGridLayout for parent <div> class, gridContent for children.
 /* Each item on grid layout consists of image with <img>, title with <a>, and discription with <p> tag.
 ---------------------------------------------------------------------------*/
-.parentGridLayout {
-	margin: 50px 0px;
+.container-title{
+	border-top: 3px solid #9c9c93;
+	border-bottom: none;
+	margin-bottom: 0;
+	font-size: 25pt;
+	color: #9c9c93;
+	text-align: center;
+}
+
+.grid-layout-container{
+	display: grid;
+	margin: 0em 0em 1em 0em;
+	padding: 1em 0em 1em 0em;
+	height: max-content;
 	border-top: 3px solid #9c9c93;
 	border-bottom: 3px solid #9c9c93;
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-gap: 10px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 1em;
+	row-gap: 1em;
 }
 
-.gridContent {
-	margin: 10px;
-	height: auto;
-	display: grid;
-	align-self: initial;
-	grid-template-columns: 1fr 3fr;
-	height: 85%;
-	grid-template-areas: "image description"
+.grid-content{
+	position: relative;
+	width: 100%;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px #ccc;
+	text-decoration: none;
+	text-align: center;
+	margin-bottom: 1em;
 }
-
-.gridContent .image{
-	align-self: initial;
-	grid-area: image;
-
-	/*background: aquamarine;*/
-}
-
-.gridContent .contentDescription{
-	grid-area: description;
-	display: grid;
-	grid-template-rows: 1fr 1fr;
-}
-
-.gridContent .contentDescription .title{
-	grid-row: 1;
-	word-break: break-word;
-	max-height: 1em;
-	font-size: 20pt;
-	margin: 0px;
-	vertical-align: 0%;
-	line-height: 100%;
-	/*background: #d50f26;*/
-}
-
-.gridContent .contentDescription .description{
-	grid-row: 2;
-	word-break: break-word;
-	font-size: 10pt;
-	/*background: #9c9c93;*/
-}
-
-.gridContent:hover {
+.grid-content:hover{
+	opacity: 0.6;
 	background-color: #9c9c93;
-	color: #ffff;
+	color: #fff;
 }
+
+.grid-content .content-anchor{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+.grid-content .content-image{
+	border-radius: 5px 5px 5px 5px;
+	width: 30%;
+}
+
+.grid-content .content-title{
+	font-size: 20pt;
+	color: #777;
+}
+
+.grid-content .content-description{
+	color: #777;
+	font-size: 14px;
+	line-height: 1.5;
+}
+*/
 
 /*Galleryページ
 ---------------------------------------------------------------------------*/

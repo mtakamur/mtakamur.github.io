@@ -164,12 +164,9 @@ a:hover {
 ---------------------------------------------------------------------------*/
 
 #container {
-	width: 50%;
-	/*ブロックの幅を画面の50%にする設定。*/
+	width: 95%;
 	margin: 2% auto 0px;
 	/*HP画面の左右中央に表示させる設定。最初の5%は上(コンテナーの外側)に空ける余白の指定。*/
-	background: #fff;
-	/*背景色（古いブラウザ用）*/
 	background: rgba(255, 255, 255, 0.5);
 	/*背景色。rgba値は左３つが色指定(この場合は白)で最後の小数点が透明度。*/
 	border-radius: 10px;
@@ -281,9 +278,10 @@ header #logo img {
 	height: max-content;
 	border-top: 3px solid #9c9c93;
 	border-bottom: 3px solid #9c9c93;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(auto-fit, 200px);
 	grid-gap: 1em;
 	row-gap: 1em;
+	justify-content: center;
 }
 
 .grid-content{
@@ -507,101 +505,3 @@ footer .pr {
 	overflow: hidden;
 	display: none;
 }
-
-/*画面幅600px以下の設定
-------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-@media screen and (max-width:600px) {
-	/*スマホ画面用コンテナ*/
-	#container {
-		width: 94%;
-		/*ブロックの幅を画面の50%にする設定。*/
-		max-width: 570;
-		/*上のwidth指定の追加設定。幅1000pxを最大幅に設定し、それ以上広げない。*/
-		margin: 3% auto 0px;
-		/*HP画面の左右中央に表示させる設定。最初の5%は上(コンテナーの外側)に空ける余白の指定。*/
-		background: #fff;
-		/*背景色（古いブラウザ用）*/
-		background: rgba(255, 255, 255, 0.5);
-		/*背景色。rgba値は左３つが色指定(この場合は白)で最後の小数点が透明度。*/
-		border-radius: 10px;
-		/*角丸のサイズ。大きくすれば角の丸みが大きくなる。角丸が不要ならこの１行削除。*/
-		padding: 3%;
-		/*ブロック内の余白*/
-		-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-		/*影の設定。右へ・下へ・ぼかし幅・色(rgba)の設定。rgba値は左３つが色指定(この場合は黒)で最後の小数点が透明度。*/
-		box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-		/*同上*/
-		overflow: scroll;
-		/*overflow: hidden;*/
-	}
-	/*メニュー
----------------------------------------------------------------------------*/
-	/*メニュー全体を囲むブロック*/
-	#menubar {
-		width: 100%;
-		margin: 15px 0px;
-		/*メニューブロックの上下(ブロックの外側)に空けるスペース*/
-		border-bottom: none;
-		/*共通設定で指定していた下線をなしにする設定*/
-	}
-	#menubar ul {
-		list-style-type: none;
-		padding: 0% 5%;
-	}
-	/* Configuration for itemizing in menu bar */
-	/*メニュー１個あたりの設定*/
-	#menubar li {
-		text-align: center;
-		display: block;
-		/*メニューを「横並び」から「縦並び」に変更する設定*/
-		margin-top: 1em;
-		margin-bottom: 1em;
-		border-bottom: 3px solid #9c9c93;
-		/*下の線の幅、線種、色を追加指定*/
-	}
-	/*Galleryページ
----------------------------------------------------------------------------*/
-	/*画像の設定*/
-	.list figure img {
-		width: 48%;
-		/*画像の幅*/
-	}
-	/*トップページ内「更新情報・お知らせ」ブロック
----------------------------------------------------------------------------*/
-	#new h2.open {
-		background: #9c9c93 url(../images/btn_minus.png) no-repeat right center/34px 34px;
-	}
-	#new h2.close {
-		background: #9c9c93 url(../images/btn_plus.png) no-repeat right center/34px 34px;
-	}
-	/*テーブル
----------------------------------------------------------------------------*/
-	/*tテーブルブロック設定*/
-	.ta1, .ta1 td, .ta1 th {
-		padding: 5px;
-		/*テーブル内の余白*/
-	}
-	table {
-		width: 95%;
-		max-width: 570;
-		border-collapse: collapse;
-		font-size: 100%;
-		border-spacing: 0;
-	}
-	iframe {
-		width: 100%;
-	}
-	figure {
-		text-align: center;
-	}
-	figure img {
-		margin: 1% 33.33%;
-		width: 33.33%;
-	}
-	figure br {
-		clear: both;
-	}
-}
-
-</pre></body></html>

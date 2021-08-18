@@ -311,7 +311,7 @@ header #logo img {
 
 .grid-content .content-image{
 	border-radius: 5px 5px 5px 5px;
-	width: 30%;
+	height: 60px;
 }
 
 .grid-content .content-title{

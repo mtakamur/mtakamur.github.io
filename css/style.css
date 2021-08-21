@@ -63,8 +63,9 @@ iframe {
 
 /*h1見出しタグの設定
 ---------------------------------------------------------------------------*/
+
 h1 {
-	border-bottom:3px #9c9c93 solid;
+	border-bottom: 3px #9c9c93 solid;
 	font-size: 25pt;
 	color: #9c9c93;
 	margin-bottom: 1em;
@@ -135,8 +136,6 @@ figure img {
 	margin-bottom: 2em;
 }
 
-/* Print every linemunber in prettyprint */
-
 /*
 .prettyprint ol.linenums > li {
   list-style-type: decimal;
@@ -164,8 +163,8 @@ a:hover {
 ---------------------------------------------------------------------------*/
 
 #container {
-	width: 95%;
-	margin: 2% auto 0px;
+	width: 50%;
+	margin: 1% auto 0px;
 	/*HP画面の左右中央に表示させる設定。最初の5%は上(コンテナーの外側)に空ける余白の指定。*/
 	background: rgba(255, 255, 255, 0.5);
 	/*背景色。rgba値は左３つが色指定(この場合は白)で最後の小数点が透明度。*/
@@ -220,7 +219,8 @@ header #logo img {
 /*メニュー全体を囲むブロック*/
 
 #menubar {
-	margin: 50px 0px;
+	width: 55%;
+	margin: 0 auto;
 	/*メニューブロックの上下(ブロックの外側)に空けるスペース*/
 	border-top: 3px solid #9c9c93;
 	/*上の線の幅、線種、色*/
@@ -230,16 +230,37 @@ header #logo img {
 	/*メニューブロックの内容をセンタリングする設定*/
 }
 
-/*メニュー１個あたりの設定*/
-
-#menubar li {
-	display: inline;
-	/*横並びにする設定*/
+#menubar ul {
+	margin: 0;
+	padding: 0;
 }
 
-#menubar li a {
+/*メニュー１個あたりの設定*/
+
+#menubar ul li {
+	height: 10px;
+	display: inline-block;
+	list-style-type: none;
+}
+
+#menubar ul li a .caret {
+	border-top: 4px solid #9c9c93;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	content: '';
+	display: inline-block;
+	height: 0;
+	width: 0;
+	vertical-align: middle;
+	-webkit-transition: color 0.1s linear;
+	transition: color 0.1s linear;
+}
+
+#menubar ul li a {
+	height: fit-content;
+	width: fit-content;
 	text-decoration: none;
-	padding: 10px 20px;
+	padding: 0px 20px;
 	/*10pxは上下に、20pxは左右へ空ける余白指定。*/
 	color: #9c9c93;
 	/*文字色*/
@@ -249,7 +270,48 @@ header #logo img {
 	/*文字感覚を少し広くする設定。広くしないでいいなら、この１行を削除。*/
 }
 
-/*マウスオン時の設定*/
+#menubar ul li div {
+	background-color: #9c9c93;
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	display: none;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	width: auto;
+	visibility: hidden;
+	-webkit-transiton: all 1.0s;
+	transition: all 1.0s;
+}
+
+#menubar ul li:hover div {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+
+#menubar ul li div ul li {
+	height: auto;
+	display: block;
+}
+
+#menubar ul li div ul li a {
+	color: #ffffff;
+	display: block;
+	padding: 0 24px;
+	text-decoration: none;
+}
+
+#menubar ul li div ul li:hover a {
+	background-color: rgba( 255, 255, 255, 0.1);
+}
+
+/* Transition duration setting */
+#menubar li a {
+	-webkit-transiton: all 0.5s;
+	transition: all 0.5s;
+}
 
 #menubar li a:hover {
 	background: #9c9c93;
@@ -262,7 +324,8 @@ header #logo img {
 /* Use parengGridLayout for parent <div> class, gridContent for children.
 /* Each item on grid layout consists of image with <img>, title with <a>, and discription with <p> tag.
 ---------------------------------------------------------------------------*/
-.container-title{
+
+.container-title {
 	border-top: 3px solid #9c9c93;
 	border-bottom: none;
 	margin-bottom: 0;
@@ -271,7 +334,7 @@ header #logo img {
 	text-align: center;
 }
 
-.grid-layout-container{
+.grid-layout-container {
 	display: grid;
 	margin: 0em 0em 1em 0em;
 	padding: 1em 0em 1em 0em;
@@ -284,7 +347,7 @@ header #logo img {
 	justify-content: center;
 }
 
-.grid-content{
+.grid-content {
 	position: relative;
 	width: 100%;
 	background: #fff;
@@ -294,13 +357,14 @@ header #logo img {
 	text-align: center;
 	margin-bottom: 1em;
 }
-.grid-content:hover{
+
+.grid-content:hover {
 	opacity: 0.6;
 	background-color: #9c9c93;
 	color: #fff;
 }
 
-.grid-content .content-anchor{
+.grid-content .content-anchor {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -309,23 +373,23 @@ header #logo img {
 	text-decoration: none;
 }
 
-.grid-content .content-image{
+.grid-content .content-image {
 	border-radius: 5px 5px 5px 5px;
 	height: 60px;
 }
 
-.grid-content .content-title{
+.grid-content .content-title {
 	font-size: 20pt;
 	color: #777;
 }
 
-.grid-content .content-description{
+.grid-content .content-description {
 	color: #777;
 	font-size: 14px;
 	line-height: 1.5;
 }
-*/
 
+*/
 /*Galleryページ
 ---------------------------------------------------------------------------*/
 

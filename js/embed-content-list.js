@@ -1,17 +1,15 @@
 /**
- * A script to generate contents list based on /js/json/content_list.json
+ * A script to embed update history on the top page.
  */
 
 const JSON_PATH = "/js/json/content_list.json";
 fetchJson().then((data) => makeContents(data.contents));
-
 
 // Functions called in the main sequence.
 function makeContents(contentsJsonObject) {
   for (let i = 0; i < contentsJsonObject.length; i++) {
       let data = contentsJsonObject[i]
       let embedString = makeEmbedString(data.title, data.url)
-      console.log(embedString)
       writeToDocument(embedString)
   }
 }

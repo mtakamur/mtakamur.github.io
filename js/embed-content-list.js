@@ -1,10 +1,12 @@
 /**
  * A script to generate contents list based on /js/json/content_list.json
  */
+
 const JSON_PATH = "/js/json/content_list.json";
 fetchJson().then((data) => makeContents(data.contents));
-  //document.write('<li><a href="/cpp/top.html">C/C++</a></li>');
 
+
+// Functions called in the main sequence.
 function makeContents(contentsJsonObject) {
   for (let i = 0; i < contentsJsonObject.length; i++) {
       let data = contentsJsonObject[i]
@@ -24,5 +26,5 @@ function makeEmbedString(title, url) {
 
 function writeToDocument(content) {
     let contentElements = document.getElementById("contents");
-    contentElements.insertAdjacentHTML("afterend", content)
+    contentElements.insertAdjacentHTML("beforeend", content)
 }

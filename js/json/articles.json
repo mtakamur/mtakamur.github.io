@@ -11,7 +11,8 @@
       "title": "by lazyによる遅延初期化",
       "description": "by lazyを使ってView要素を初期化してしまった時の罠",
       "url": "/kotlin/struggled/by_lazy_init.html",
-      "genre": "struggled"
+      "genre": "struggled",
+      "keywords": ["by lazy", "遅延初期化", "View"]
     }
   ],
   "r": [],

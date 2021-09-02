@@ -10,7 +10,6 @@
   <meta name="keywords" content="C,C++,C#,Kotlin,ROOT,CERN,Android,R,初心者,入門,文法" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/js/highlight/styles/darcula.css" />
-  <script type="text/javascript" src="js/openclose.js"></script>
   <script src="/js/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <!--[if lt IE 9]>
@@ -20,6 +19,18 @@
 </head>
 
 <body>
+  <div id="menubar">
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a>Contents <span class="caret"></span></a>
+        <div>
+          <ul id="contents">
+            <script type="text/javascript" src="/js/embed-content-list.js"></script>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
   <div id="container">
     <header>
       <div id="logo" style="text-align: center;"><a href="/index.html"> <img src="/images/logo.png"
@@ -29,35 +40,23 @@
     <h1>by lazyによる遅延初期化</h1>
     <p>
       valやvarで宣言した変数には初期化が必要ですが、特にAndroid上で開発している場合にはActivityやFragmentのライフサイクル的に宣言時に初期化が行えないことがしばしばあります。
-      そんな時の選択肢としては下記がパッと思いつくでしょうか。
+      そんな時、初期化を後回しにするための手段として、Kotlinでは下記のような遅延初期化の手段が用意されています。
     <ul>
-      <li>nullableな変数としてnullで初期化し、後で正しい値を代入し直す</li>
-      <a>
-        <li>変数の遅延初期化</li>
-      </a>
+      <li>lateinit var 変数にする</li>
+      <li>by lazy で始めて参照されたときに初期化する</li>
     </ul>
     </p>
 
     <p>
-      遅延初期化の方法としては、lateinit, by lazyの2種類がありますが、by lazyによる初期化をしようとしてハマった時のお話です。
+      by lazy を使って遅延初期化を試みた時にハマったお話です。
     </p>
 
     <pre>
       <code>
-        fun main() {
-          println("Hello Kotlin!")
-        }
       </code>
     </pre>
   </div>
 
-  <!--/container-->
-  <!--
-  <footer>
-    <small>Copyright© <a href="index.html">πの実</a> All Rights Reserved.</small>
-    <span class="pr">《<a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
-  </footer>
-    -->
   </div>
 </body>
 

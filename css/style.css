@@ -16,8 +16,6 @@ body {
 	/*文字サイズ*/
 	line-height: 2;
 	/*行間*/
-	background: #fff url(../images/bg.jpg) fixed;
-	/*背景色*/
 	-webkit-text-size-adjust: none;
 }
 

@@ -37,7 +37,7 @@
           "month": 9,
           "date": 2
         },
-        "title": "コレクションのコピー、ほんとにできてますか？",
+        "title": "コレクションのdeep copyが欲しい",
         "description": "toList()でコレクションの丸ごとコピーができたと思っていた話",
         "url": "/kotlin/struggled/collection_copy.html",
         "keywords": ["deep copy", "shallow copy", "浅いコピー", "深いコピー"]

@@ -1,74 +1,188 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>πの実</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="個人的な備忘録です。主に初心者の方の疑問解消に少しでも役立てれば幸いです。" />
-  <meta name="keywords" content="C,C++,C#,Kotlin,ROOT,CERN,Android,R,初心者,入門,文法" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/js/highlight/styles/darcula.css" />
-  <script src="/js/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <!--[if lt IE 9]>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>πの実</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="個人的な備忘録です。主に初心者の方の疑問解消に少しでも役立てれば幸いです。"
+    />
+    <meta
+      name="keywords"
+      content="C,C++,C#,Kotlin,ROOT,CERN,Android,R,初心者,入門,文法"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/js/highlight/styles/darcula.css" />
+    <script src="/js/highlight/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script
     ><![endif]-->
-</head>
+  </head>
 
-<body>
-  <div id="menubar">
-    <ul>
-      <li><a href="/index.html">Home</a></li>
-      <li><a>Contents <span class="caret"></span></a>
-        <div>
-          <ul id="contents">
-            <script type="text/javascript" src="/js/embed-content-list.js"></script>
-          </ul>
+  <body>
+    <div id="menubar">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li>
+          <a>Contents <span class="caret"></span></a>
+          <div>
+            <ul id="contents">
+              <script
+                type="text/javascript"
+                src="/js/embed-content-list.js"
+              ></script>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="container">
+      <header>
+        <div id="logo" style="text-align: center">
+          <a href="/index.html">
+            <img src="/images/logo.png" style="width: 150px; height: 46px"
+          /></a>
         </div>
-      </li>
-    </ul>
-  </div>
-  <div id="container">
-    <header>
-      <div id="logo" style="text-align: center;"><a href="/index.html"> <img src="/images/logo.png"
-            style="width: 150px; height: 46px;"></a></div>
-    </header>
+      </header>
 
-    <h1 style="text-align: center;">まとめ</h1>
-    <ul>
-      <li>toList, toSet, toMap などの、コレクションの変換メソッドで得られるのは"浅いコピー" (Shallow copy)</li>
-      <li>コレクションそのものは変換元とは別インスタンスになりますが、その中身のインスタンスはもとと同じインスタンスへの参照のままの場合がある</li>
-    </ul>
+      <h1 style="text-align: center">まとめ</h1>
+      <ul>
+        <li>
+          toList, toSet, toMap
+          などの、コレクションの変換メソッドで得られるのは"浅いコピー" (Shallow
+          copy)
+        </li>
+        <li>
+          コレクションそのものは変換元とは別インスタンスなるが、プリミティブ型以外の要素は参照のコピーなので、目的に合ったコピーになっているか注意が必要
+        </li>
+      </ul>
 
-    <h1>参照渡し？値渡し？</h1>
-    <p>
-      オブジェクト指向言語において、自分でクラスを作るようになってくると一つ気になりだすことがあると思います。メソッドに対して値やインスタンスを渡すとき、それは値渡しなのか参照渡しなのかということです。
-      Kotlinにおいては、プリミティブ型の変数については値渡し(つまりは単純な数値やリテラルのコピー)となりますが、それ以外のインスタンスについてはコピーではなく参照が渡されることになります。
-    </p>
+      <h2>インスタンスのコピー</h2>
+      <p>
+        toList,
+        toSetなど、コレクションを変換、コピーすることができるメソッドがKotlinには用意されています。この時、コレクションの要素も
+        deep copy されると思い込んではまったお話。
+      </p>
 
-    <p>
-      以上のことは、ある程度Kotlinでの開発に慣れてきた方であれば把握されているかと思います。参照渡しをしていると、別々の変数であってもその実態は同じということになりますので、
-      一方に対して変更を加えると、もう一方にもその変更が及ぶこととなります。思い切った言い方をしてしまうと、一つの実体に別の名前を付けて呼んでいるだけです。
-    </p>
+      <p>
+        値やインスタンスの集合であるコレクション(List, Set,
+        Mapなど)を丸ごとコピーしたい場合は、下記のようにtoList, toSet,
+        toMapなど、目的の型への変換メソッドを使うことでコピーが行えます。
+        to~はコレクションの変換メソッドとして紹介されることが多いですが、<b>変換元の型と同じ型への変換メソッドを使うと、中身が同じだけれども別インスタンスとしてのコレクション(コピー)を得ることができます</b>。
+        ただし、プリミティブ型以外の要素は、 shallow copy
+        が作られるだけで、参照先は変わりません。
+      </p>
 
-    <p>
-      インスタンスにくわえられた変更を比較したい場合など、純粋にインスタンスのコピーを取っておく必要がある場合、copy()メソッドを使うことで簡単に実現できるようになっています。
-    </p>
-
-    <p>
-      値やインスタンスの集合であるコレクション(List, Set, Mapなど)を丸ごとコピーしたい場合は、下記のようにtoList, toSet, toMapなど、目的の型への変換メソッドを使うことでコピーが行えます。
-      to~~は一般にコレクションの変換メソッドとして紹介されることが多いですが、変換元の型と同じ型への変換メソッドを使うと、中身が同じだけれども別インスタンスとしてのコレクション(コピー)を得ることができます。
-    </p>
-    <pre>
+      <p>
+        下記を例にとってみます。 Person クラスを要素に持つ List を、 toList()
+        メソッドによってコピーしています。生成されたコピーに対して、一つ目の要素の値を書き換えてみます。
+      </p>
+      <pre>
       <code>
+        data class Person(
+          var name: String
+        )
+
+        fun shallowCopy() {
+          val family = listOf(
+              Person("a"),
+              Person("b")
+          )
+          val shallowCopiedFamily = family.toList()
+      
+          // 一人目の名前を変えちゃう
+          shallowCopiedFamily.first().name = "c"
+      
+          println("family = $family")
+          println("copiedFamily = $shallowCopiedFamily")
+         }
       </code>
-    </pre>
-  </div>
+      </pre>
 
-  </div>
-</body>
+      <p>
+        要素を書き換えた後のそれぞれの List
+        を出力してみると下記のようになります。
+      </p>
 
+      <pre>
+        <code>
+          family = [Person(name=c), Person(name=b)]
+          copiedFamily = [Person(name=c), Person(name=b)]
+        </code>
+      </pre>
+
+      <p>
+        コピー先だけに変更を加えたつもりが、コピー元のfamilyの要素まで変更されています。
+      </p>
+
+      <p>
+        プリミティブ型以外の要素を持つコレクションをディープコピーしたい場合は、下記のように一工夫必要となります。
+      </p>
+      <pre>
+        <code>
+          fun deepCopy() {
+            val family = listOf(
+                Person("a"),
+                Person("b")
+            )
+            val deepCopiedFamily = family.map { member -> member.copy() }
+        
+            // 一人目の名前を変えちゃう
+            deepCopiedFamily.first().name = "c"
+        
+            println("family = $family")
+            println("copiedFamily = $deepCopiedFamily")
+            }
+        </code>
+      </pre>
+      <pre>
+        <code>
+          family = [Person(name=a), Person(name=b)]
+          copiedFamily = [Person(name=c), Person(name=b)]
+        </code>
+      </pre>
+
+      <p>
+        一例でしかありませんが、この例ではmap()メソッドによって要素を逐一コピーしたものを新しく生成されるコレクションの要素に与えています。
+        インスタンスに対してcopy()メソッドを実行すると、そのインスタンスのdeep
+        copyが返されます。これを新しいコレクションの要素とすれば、各要素のdeep
+        copyで構成されたコレクションが得られます。
+      </p>
+
+      <h2>プリミティブ型は例外</h2>
+      <p>
+        プリミティブ型については、to~によるコピーで別の値としてのコピーが作成されます。(そもそもプリミティブ型に対してcopy()メソッドは定義されていない)
+      </p>
+      <pre>
+        <code>
+          fun primitiveCopy() {
+            val list = listOf(0, 1)
+            val copiedList = list.toMutableList()
+        
+            // コピーしたリストの要素をいじってみる
+            copiedList[0] = 2
+        
+            println("list = $list")
+            println("copiedList = $copiedList")
+        }
+        </code>
+      </pre>
+      <pre>
+        <code>
+          list = [0, 1]
+          copiedList = [2, 1]
+        </code>
+      </pre>
+
+      <p>
+        試しにやってみると、単にtoList()によって(要素をいじりたいので実際はtoMutableList()によって)作られたコピーの要素をいじってみても、元の要素に変更はないことがわかります。
+      </p>
+    </div>
+  </body>
 </html>

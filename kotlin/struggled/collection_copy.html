@@ -61,6 +61,17 @@
         <li>
           コレクションそのものは変換元とは別インスタンスなるが、プリミティブ型以外の要素は参照のコピーなので、目的に合ったコピーになっているか注意が必要
         </li>
+        <li>
+          <b
+            >data classのcopy()メソッドによるコピーも、実際は shallow
+            copy。プリミティブ型以外のプロパティについては元のインスタンスと同じ参照を持つ</b
+          >
+        </li>
+        <li>
+          Kotlin組み込みの実装だけによってdeep
+          copyを作ることは現状できない。クラスごとにdeep
+          copy用のメソッドを自力で実装するのが単純。
+        </li>
       </ul>
 
       <h2>インスタンスのコピー</h2>
@@ -187,6 +198,82 @@
 
       <p>
         試しにやってみると、単にtoList()によって(要素をいじりたいので実際はtoMutableList()によって)作られたコピーの要素をいじってみても、元の要素に変更はないことがわかります。
+      </p>
+
+      <h2>copyメソッドでも shallow copy が作られる(2021/9/12 追記)</h2>
+      <p>
+        data class の　copy() メソッドに関して訂正です。 deep copy が欲しければ
+        data class の copy()
+        メソッドを使えばよいと上で述べましたが、実際に生成されるのは shallow
+        copy のため、状況によっては不適切です。
+      </p>
+
+      <p>
+        "状況によっては"というのも、コピーしたい data class
+        のプロパティがプリミティブ型のみであれば、実際は deep copy
+        の生成とみなせますので問題は起こらないはずです。問題が起こりうるのは、下記のように<b>インスタンスをプロパティとして保持している場合</b>です。
+      </p>
+      <pre>
+        <code>
+        data class Container(val content: Content)
+        data class Content(var id: Int)
+
+          fun instanceProperty() {
+            val content = Content(0)
+            val container = Container(content)
+            val copiedContainer = container.copy()
+        
+            copiedContainer.content.id = 1
+        
+            println("content in container = $container")
+            println("content in copiedContainer = $copiedContainer")
+        }
+        </code>
+      </pre>
+      <p>
+        実行結果は下記のようになり、 Container クラスのプロパティである content
+        インスタンスは元の参照と同じものを持っているため、コピー先への変更がコピー元が保持している
+        content にまで及んでいることがわかります。
+      </p>
+      <pre>
+        <code>
+        content in container = Container(content=Content(id=1))
+        content in copiedContainer = Container(content=Content(id=1))
+        </code>
+      </pre>
+
+      <p>
+        こういったケースで deep copy が必要になる場合は Container クラスに自力で
+        copy メソッドを実装して、プロパティのインスタンスも copy
+        によってコピーするのが単純でしょうか…。
+      </p>
+      <pre>
+        <code>
+          data class Container(val content: Content) {
+              fun copy() = Container(content.copy()) // 手動コピー
+          }
+
+          data class Content(var id: Int)
+        </code>
+      </pre>
+      <p>
+        上記のコードで一応の目的は果たせることになりますが、拡張性もメンテナンス性も最悪です。
+        Container クラスを拡張した場合は忘れずに独自実装の copy()
+        メソッドも修正する必要があります(が、質の悪いことに修正を忘れてもコンパイルは通ってしまいます)。
+      </p>
+
+      <p>
+        調べてみると、
+        <a href="https://github.com/bennyhuo/KotlinDeepCopy"
+          >deep copy を生成するためのライブラリ</a
+        >も公開されているようです。
+      </p>
+
+      <p>
+        コピーなんて単純だと思っていましたが、目的にあったコピーは意外と難しいものでした…。スマートなアイディアをお持ちの方、ぜひ<a
+          href="mailto:mtakamur.gio@gmail.com"
+          >筆者</a
+        >に教えてください
       </p>
     </div>
   </body>

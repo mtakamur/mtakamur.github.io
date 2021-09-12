@@ -7,13 +7,24 @@ const TARGET_ID = "history";
 const EMBEDDING_TARGET_ID = "date";
 fetchJson().then((data) => makeContents(data.history));
 
-function onloadEmbed() {
+function embedDate() {
+  // Input path to content in JSON as arguments.
+  fetchJson().then((data) => getDateFor(data, arguments).then());
+
   document
     .getElementById(EMBEDDING_TARGET_ID)
     .insertAdjacentHTML("beforeend", "test");
 }
 
 // Functions called in the main sequence.
+function getDateFor(data, path) {
+  let date;
+  for (let i = 0; i < path.length; i++) {
+    let nextNode = path[i];
+    date = data.get(nextNode);
+  }
+}
+
 function makeContents(contentsJsonObject) {
   for (let i = 0; i < contentsJsonObject.length; i++) {
     let newRangeInMillis = 2629800000; // 1 month.

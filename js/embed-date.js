@@ -8,9 +8,11 @@ function embedDate(...path) {
 
   // Input path to content in JSON as arguments.
   fetchJson(JSON_PATH)
-  .then((data) => getDateNode(data, path))
-  .then((dateNode) => makeDateString(dateNode))
-  .then((embeddingString) => writeDateToDocument(EMBEDDING_TARGET, embeddingString));
+    .then((data) => getDateNode(data, path))
+    .then((dateNode) => makeDateString(dateNode))
+    .then((embeddingString) =>
+      writeDateToDocument(EMBEDDING_TARGET, embeddingString)
+    );
 
   // document
   //   .getElementById(EMBEDDING_TARGET_ID)
@@ -29,20 +31,21 @@ function getDateNode(data, path) {
 
   // Find article node whose id matches to final parameter of path.
   dateNode = findArticleById(dateNode, path[path.length - 1]);
-  console.log(dateNode)
   return dateNode;
 }
 
 function findArticleById(articles, id) {
   for (let i = 0; i < articles.length; i++) {
-    if (articles[i].id == id) return articles[i][date];
+    if (articles[i].id == id) return articles[i];
   }
 }
 
-function makeDateString(dateNode) {
-    return makeEmbedString(
-      formatDate(dateNode[date].year, dateNode.date.month, dateNode.date)
-      )
+function makeDateString(articleNode) {
+  console.log();
+  let dateNode = articleNode["date"];
+  return makeEmbedString(
+    formatDate(dateNode["year"], dateNode["month"], dateNode["date"])
+  );
 }
 
 function fetchJson(jsonPath) {
@@ -50,7 +53,7 @@ function fetchJson(jsonPath) {
 }
 
 function makeEmbedString(dateString) {
-  return "<p>" + date + "</p>";
+  return "<p> 更新日: " + dateString + "</p>";
 }
 
 function formatDate(year, month, date) {

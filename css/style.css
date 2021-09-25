@@ -569,7 +569,7 @@ footer .pr {
 }
 
 /* Styles for small screen */
-@media (min-width: 780px){
+@media (max-width: 780px){
 #container {
 	width: 95%;
 	margin: 1% auto 0px;

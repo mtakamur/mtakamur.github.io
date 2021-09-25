@@ -567,3 +567,23 @@ footer .pr {
 	overflow: hidden;
 	display: none;
 }
+
+/* Styles for small screen */
+@media (min-width: 780px){
+#container {
+	width: 95%;
+	margin: 1% auto 0px;
+	/*HP画面の左右中央に表示させる設定。最初の5%は上(コンテナーの外側)に空ける余白の指定。*/
+	background: rgba(255, 255, 255, 0.5);
+	/*背景色。rgba値は左３つが色指定(この場合は白)で最後の小数点が透明度。*/
+	border-radius: 10px;
+	/*角丸のサイズ。大きくすれば角の丸みが大きくなる。角丸が不要ならこの１行削除。*/
+	padding: 3%;
+	/*ブロック内の余白*/
+	-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+	/*影の設定。右へ・下へ・ぼかし幅・色(rgba)の設定。rgba値は左３つが色指定(この場合は黒)で最後の小数点が透明度。*/
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+	/*同上*/
+	overflow: hidden;
+}
+}

@@ -1,135 +1,186 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>πの実</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="忙しい人のための Effective Kotlin 超要約 Item 19: Do not repeat knowledge" />
-  <meta name="keywords" content="Kotlin, Effective Kotlin, 忙しい人のための" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/js/highlight/styles/darcula.css" />
-  <!--[if lt IE 9]>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>πの実</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="忙しい人のための Effective Kotlin 超要約 Item 19: Do not repeat knowledge"
+    />
+    <meta
+      name="keywords"
+      content="Kotlin, Effective Kotlin, 忙しい人のための"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/js/highlight/styles/darcula.css" />
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script
     ><![endif]-->
-</head>
+  </head>
 
-<script type="text/javascript" src="/js/embed-date.js"></script>
-<script src="/js/highlight/highlight.pack.js"></script>
-<script src="/js/embed-content-list.js"></script>
-<script type="text/javascript">
-  window.addEventListener(
-    "load",
-    function () {
-      embedDate("kotlin", "effective_kotlin", "item_19_do_not_repeat_knowledge");
-      embedContentList();
-    },
-    false
-  );
-  hljs.initHighlightingOnLoad();
-</script>
+  <script type="text/javascript" src="/js/embed-date.js"></script>
+  <script src="/js/highlight/highlight.pack.js"></script>
+  <script src="/js/embed-content-list.js"></script>
+  <script type="text/javascript">
+    window.addEventListener(
+      "load",
+      function () {
+        embedDate(
+          "kotlin",
+          "effective_kotlin",
+          "item_19_do_not_repeat_knowledge"
+        );
+        embedContentList();
+      },
+      false
+    );
+    hljs.initHighlightingOnLoad();
+  </script>
 
-<body>
-  <div id="menubar">
-    <ul>
-      <li><a href="/index.html">Home</a></li>
-      <li>
-        <a>Contents <span class="caret"></span></a>
-        <div>
-          <ul id="contents"></ul>
+  <body>
+    <div id="menubar">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li>
+          <a>Contents <span class="caret"></span></a>
+          <div>
+            <ul id="contents"></ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="container">
+      <header>
+        <div id="logo" style="text-align: center">
+          <a href="/index.html">
+            <img src="/images/logo.png" style="width: 150px; height: 46px"
+          /></a>
         </div>
-      </li>
-    </ul>
-  </div>
-  <div id="container">
-    <header>
-      <div id="logo" style="text-align: center">
-        <a href="/index.html">
-          <img src="/images/logo.png" style="width: 150px; height: 46px" /></a>
-      </div>
-    </header>
+      </header>
 
-    <div id="date" style="text-align: right"></div>
+      <div id="date" style="text-align: right"></div>
 
-    この節の内容は、言語にとらわれず意識しておくべき基礎的な原則です。
+      この節の内容は、言語にとらわれず意識しておくべき基礎的な原則です。
 
-    <h1>まとめ</h1>
-    <ul>
-      <li>
-        コーディングしている中で、<b>コピペが必要になったときはちょっと立ち止まろう</b>。同じことを二度書く必要はきっとないはず。
-      </li>
-    </ul>
+      <h1>まとめ</h1>
+      <ul>
+        <li>
+          コーディングしている中で、<b>コピペが必要になったときはちょっと立ち止まろう</b>。同じことを二度書く必要はきっとないはず。
+        </li>
+        <li>
+          すべての変数やメソッドは変更されうる、という前提の下でコーディングしよう。
+          つまり無意味にコピペがあると、次の2つの理由で痛い目を見ます。
+          <ul>
+            <li>一つを変更したら全部変えなきゃ。面倒くさくない？</li>
+            <li>
+              コピペしたところは一切もれなく(チームのほかの人がコピペしたものも含めて)把握している？たった一つでも見逃しているとその時点でバク発生！
+            </li>
+          </ul>
+        </li>
+        <li>
+          ただし、何でもかんでも共通化してコピペを避けるべきというわけではない。共通化すべきかどうかの判断基準の一つは、<b>片方を変更するときにもれなくもう片方も変更する必要があるか</b>。
+          もしも別々に変更する可能性があるのであれば、それは共通化すべきでない。
+          なぜなら姿形はまったく同じでも<b>意味の違うものであるから</b>。
+        </li>
+        <li>
+          共通化にせよ分離にせよ、どちらかに極端に偏るといずれも良くない。
+          十分に訓練して、程よいバランスを保てるようにしよう。
+        </li>
+      </ul>
 
-    <h2>ちょっと詳しく</h2>
-    <p>
-      コーディングの原則としてよく知られている(しかし実践は実は難しい)"DRY (= Don't Repeat Yourself) 原則"というものがあります。
-      平たく言えば、"同じ情報は2度書くのは良くないよ"という原則です。まとめにある通り、1つのプロジェクトの中でコピペをするということは、
-      どこかと同じ変数なりアルゴリズムなりを2度以上書いているということになります。
-      これは少なくとも下記の理由で避けるべきです。
-    </p>
+      <h1>ちょっと詳しく</h1>
+      <p>
+        コーディングの原則としてよく知られている(しかし実践は実は難しい)"DRY (=
+        Don't Repeat Yourself) 原則"というものがあります。
+        平たく言えば、"同じ情報は2度書くのは良くないよ"という原則です。まとめにある通り、1つのプロジェクトの中でコピペをするということは、
+        どこかと同じ変数なりアルゴリズムなりを2度以上書いているということになります。
+        これは少なくとも下記の理由で避けるべきです。
+      </p>
 
-    <ul>
-      <li>単純に無駄だから。共通で使えるようにすればコーディングする時間もファイルサイズも2つ分は必要ないはずですよね。</li>
-      <li>1つを変更しなくてはいけない時に死ぬほど面倒くさい。なぜならコピペしたものを全部<b>もれなく</b>変更しなくてはいけないから。</li>
-    </ul>
+      <ul>
+        <li>
+          単純に無駄だから。共通で使えるようにすればコーディングする時間もファイルサイズも2つ分は必要ないはずですよね。
+        </li>
+        <li>
+          1つを変更しなくてはいけない時に死ぬほど面倒くさい。なぜならコピペしたものを全部<b>もれなく</b>変更しなくてはいけないから。
+        </li>
+      </ul>
 
-    <p>
-      DRY原則に反したコーディングを、WET(= We Enjoy Typing, Waste Everyone's Time, or Write Everything Twice) アンチパターンと呼んだりします。
-      DRYに対してWET、いい感じで対になってますね。
-    </p>
+      <p>
+        DRY原則に反したコーディングを、WET(= We Enjoy Typing, Waste Everyone's
+        Time, or Write Everything Twice) アンチパターンと呼んだりします。
+        DRYに対してWET、いい感じで対になってますね。
+      </p>
 
-    <h2>Knowledge -情報/知識-</h2>
-    <p>
-      この節で言う"Knowledge"としては主に下記の2つに焦点を当てています。
-    </p>
+      <h2>Knowledge -情報/知識-</h2>
+      <p>この節で言う"Knowledge"としては主に下記の2つに焦点を当てています。</p>
 
-    <ul>
-      <li>ロジック: コードの振る舞いを記述するもの</li>
-      <li>共通アルゴリズム: ロジックを実現するための下回り計算</li>
-    </ul>
+      <ul>
+        <li>ロジック: コードの振る舞いを記述するもの</li>
+        <li>共通アルゴリズム: ロジックを実現するための下回り計算</li>
+      </ul>
 
-    <p>
-      上記2つの違いはぱっと見わかりづらいものですが、ロジックはアプリケーションの要求に応じていつでも変わりうるもので、
-      それに対してアルゴリズムは、ロジックが変更されても基本的には変更されることのない仕組みの部分をさしています。
-    </p>
+      <p>
+        上記2つの違いはぱっと見わかりづらいものですが、ロジックはアプリケーションの要求に応じていつでも変わりうるもので、
+        それに対してアルゴリズムは、ロジックが変更されても基本的には変更されることのない仕組みの部分をさしています。
+      </p>
 
-    <h2>Everything can change -すべてのものは変わりうる-</h2>
-    <p>
-      ということで、世の中のありとあらゆるものは変化し続けます。ソフトウェアについては特に変化が顕著で、長年一切の変化がないものはほとんど見つけることはできないでしょう。
-    </p>
+      <h2>Everything can change -すべてのものは変わりうる-</h2>
+      <p>
+        ということで、世の中のありとあらゆるものは変化し続けます。ソフトウェアについては特に変化が顕著で、長年一切の変化がないものはほとんど見つけることはできないでしょう。
+      </p>
 
-    <p>
-      従って、自分が書いているコードは<b>いつか必ず変更されるという前提</b>に立っているべきなのです。
-      そして、いざ<b>既存のコードを変更しようとしたとき、最も大きな障害となるのがロジックやデータの繰り返し</b>です。
-      同じ意図で書かれた同じロジックやデータは、変更しようとしたときにもれなく更新する必要があります。
-    </p>
+      <p>
+        従って、自分が書いているコードは<b>いつか必ず変更されるという前提</b>に立っているべきなのです。
+        そして、いざ<b>既存のコードを変更しようとしたとき、最も大きな障害となるのがロジックやデータの繰り返し</b>です。
+        同じ意図で書かれた同じロジックやデータは、変更しようとしたときにもれなく更新する必要があります。
+      </p>
 
-    <ul>
-      <li>単純に時間と労力の無駄</li>
-      <li>どんなに気を付けていても変更漏れのリスクを避けられない</li>
-    </ul>
+      <ul>
+        <li>単純に時間と労力の無駄</li>
+        <li>どんなに気を付けていても変更漏れのリスクを避けられない</li>
+      </ul>
 
-    <p>
-      という観点で、繰り返しは避けるべきといえます。コーディングの領域では、インターフェースなどの抽象化によってある程度変更しやすい(無駄な繰り返しを避けた)実装を行うことができます。
-    </p>
+      <p>
+        という観点で、繰り返しは避けるべきといえます。コーディングの領域では、インターフェースなどの抽象化によってある程度変更しやすい(無駄な繰り返しを避けた)実装を行うことができます。
+      </p>
 
-    <h2>When should we allow code repeatation? -コードを繰り返してもよいのはどんな時？-</h2>
-    <p>
-      一見同じコードが複数の場所に書かれていても問題がないケースもあります。見た目は違っても意図が違う場合です。
-      <b>一方を変更したときに他方も必ず変更する必要があるか</b>が、コードの繰り返しに問題があるかどうかを判断する基準の一つとして有効です。
-      もし、独立に変更することが考えられるのであれば、一見同じコードが何か所かに書かれていても常には問題にはなりません。
-    </p>
+      <h2>
+        When should we allow code repeatation?
+        -コードを繰り返してもよいのはどんな時？-
+      </h2>
+      <p>
+        一見同じコードが複数の場所に書かれていても問題がないケースもあります。見た目は違っても意図が違う場合です。
+        <b>一方を変更したときに他方も必ず変更する必要があるか</b
+        >が、コードの繰り返しに問題があるかどうかを判断する基準の一つとして有効です。
+        もし、独立に変更することが考えられるのであれば、一見同じコードが何か所かに書かれていても常には問題になりません。
+      </p>
 
-    <h2>Single responsibility principle -違う目的で使いまわさない-</h2>
-    <p>
-      目的が違う変数やメソッドは、(仮に見た目が全く同じであっても)一つにまとめるべきではありません。
-      何故なら、それらは今の見た目は同じであっても将来的に<b>独立して変更される可能性がある</b>からです。
-      もしこれらを一つのメソッドや変数にまとめてしまっていると、変更がそれを利用しているすべてに及んでしまい、
-      思わぬバグを生むことがあるからです。
-      一つのクラス、変数、メソッドに一つの役割だけを持たせる (= Single responsibility prinsiple)ようにすべきです。
-    </p>
-</body>
+      <h2>Single responsibility principle -違う目的で使いまわさない-</h2>
+      <p>
+        目的が違う変数やメソッドは、(仮に見た目が全く同じであっても)一つにまとめるべきではありません。
+        何故なら、それらは今の見た目は同じであっても将来的に<b>独立して変更される可能性がある</b>からです。
+        言い換えると、本来別々であるべきものを、たまたま形が似ているからと言って定義を一緒にしてしまっているということになります。
+        もしこれらを一つのメソッドや変数にまとめてしまっていると、変更が生じたときには、変更がそれを利用しているすべてに及んでしまい、
+        思わぬバグを生むことになります。
+      </p>
+      <p>
+        一つのクラス、変数、メソッドに一つの役割だけを持たせる (= Single
+        responsibility prinsiple)ようにすべきです。
+      </p>
 
+      <h2>サイト筆者の勝手な見解</h2>
+      <p>
+        ここまで"同じことは二度書くな"ということと、"必要以上に共通化しすぎると痛い目を見る"と両極端なことを述べてきました。ここからはサイトの筆者の解釈ですが、コーディングをする際はやはり基本的には"同じことは二度書くな"の精神でいたほうが良いと思います。
+      </p>
+
+      <p>
+        コードを共通化するためには、値や処理に対して変数やメソッド名として名前を付けてあげることとなります。<b>変数やメソッドに名前を付けるときに、名前の候補がいろいろと考えられて決めきれないときや、やたらと長い名前になってしまうとき</b>はまだ名づけるべき単位に分離しきれていないサインかもしれません。
+        ちょっと立ち止まって、変数やメソッド名を分離できないか考えるとよいかもしれませんね。
+      </p>
+    </div>
+  </body>
 </html>

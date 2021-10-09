@@ -70,6 +70,18 @@
         "description": "Write information only once",
         "url": "/kotlin/struggled/item_19_do_not_repeat_knowledge.html",
         "keywords": ["effective kotlin", "DRY原則", "DRY principle"]
+      },
+      {
+        "id": "item_20_do_not_repeat_common_algorithms",
+        "date": {
+          "year": 2021,
+          "month": 10,
+          "date": 9
+        },
+        "title": "Do not repeat common algorithms",
+        "description": "Write common algorithms only once",
+        "url": "/kotlin/struggled/item_20_do_not_repeat_common_algorithms.html",
+        "keywords": ["effective kotlin", "DRY原則", "DRY principle"]
       }
     ]
   },

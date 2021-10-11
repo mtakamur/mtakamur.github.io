@@ -58,6 +58,19 @@
         "keywords": ["data class", "copy", "shallow copy", "deep copy"]
       }
     ],
+    "others": [
+      {
+        "date": {
+          "year": 2021,
+          "month": 10,
+          "date": 11
+        },
+        "title": "Trailing commas",
+        "description": "最終要素にもコンマをつけておいて大丈夫",
+        "url": "/kotlin/others/trailing_commas.html",
+        "keywords": ["kotlin", "commas", "コンマ", "カンマ", "trailing commas"]
+      }
+    ],
     "effective_kotlin": [
       {
         "id": "item_19_do_not_repeat_knowledge",

@@ -1,99 +1,168 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>πの実</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="個人的な備忘録。随時更新中です。" />
-  <meta name="keywords" content="C,C++,C#,Kotlin,ROOT,CERN,Android,R,初心者,入門,文法" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <!--[if lt IE 9]>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>πの実</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="個人的な備忘録。随時更新中です。" />
+    <meta
+      name="keywords"
+      content="C,C++,C#,Kotlin,ROOT,CERN,Android,R,初心者,入門,文法"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script
     ><![endif]-->
-</head>
+  </head>
 
-<body>
-  <div id="menubar">
-    <ul>
-      <li><a href="/index.html">Home</a></li>
-      <li><a>Contents <span class="caret"></span></a>
-        <div>
-          <ul id="contents">
-            <script type="text/javascript" src="/js/embed-content-list.js"></script>
-          </ul>
+  <body>
+    <div id="menubar">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li>
+          <a>Contents <span class="caret"></span></a>
+          <div>
+            <ul id="contents">
+              <script
+                type="text/javascript"
+                src="/js/embed-content-list.js"
+              ></script>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="container">
+      <header>
+        <div id="logo" style="text-align: center">
+          <a href="/index.html">
+            <img src="/images/logo.png" style="width: 150px; height: 46px"
+          /></a>
         </div>
-      </li>
-    </ul>
-  </div>
-  <div id="container">
-    <header>
-      <div id="logo" style="text-align: center;"><a href="/index.html"> <img src="/images/logo.png"
-            style="width: 150px; height: 46px;"></a></div>
-    </header>
+      </header>
 
-    <h1>Kotlin on Android</h1>
-    Androidアプリの公式開発言語となったKotlin。主にAndroid上でのKotlinプログラミングのメモを残します。
-    <h2>非同期処理</h2>
-    <h3><a style="text-decoration-line: none;" href="/kotlin/coroutine/top.html">Coroutine</a></h3>
-    <ul>
-      <a>
-        <li></li>
-      </a>
-    </ul>
+      <h1>Kotlin on Android</h1>
+      Androidアプリの公式開発言語となったKotlin。主にAndroid上でのKotlinプログラミングのメモを残します。
+      <h2>非同期処理</h2>
+      <h3>
+        <a style="text-decoration-line: none" href="/kotlin/coroutine/top.html"
+          >Coroutine</a
+        >
+      </h3>
+      <ul>
+        <a>
+          <li></li>
+        </a>
+      </ul>
 
-    <h3><a style="text-decoration-line: none;" href="/kotlin/flow/top.html">Flow</a></h3>
+      <h3>
+        <a style="text-decoration-line: none" href="/kotlin/flow/top.html"
+          >Flow</a
+        >
+      </h3>
 
-    <h2>ハマったこと</h2>
-    <ul>
-      <li><a href="/kotlin/struggled/by_lazy_init.html">by lazyによる遅延初期化</a></li>
-      <li><a href="/kotlin/struggled/collection_copy.html">コレクションのdeep copyが欲しい</a></li>
-      <li><a href="/kotlin/struggled/target_of_copy.html">data class copy() の対象</a></li>
-    </ul>
+      <h2>ハマったこと</h2>
+      <ul>
+        <li>
+          <a href="/kotlin/struggled/by_lazy_init.html"
+            >by lazyによる遅延初期化</a
+          >
+        </li>
+        <li>
+          <a href="/kotlin/struggled/collection_copy.html"
+            >コレクションのdeep copyが欲しい</a
+          >
+        </li>
+        <li>
+          <a href="/kotlin/struggled/target_of_copy.html"
+            >data class copy() の対象</a
+          >
+        </li>
+      </ul>
 
-    <h1>忙しい人のための Effective Kotlin -Best Practices-</h1>
-    <p>
-      EffectiveなんちゃらシリーズのKotlin版。まだ日本語版が出版されていませんし、総ページ数400ページ余りとなかなかのボリュームなので、手を出しづらい方もいらっしゃるでしょう。
-      そんな忙しい方のために、要点だけをちょこちょこお届け。
-    </p>
+      <h2>その他</h2>
+      <ul>
+        <li>
+          <a href="/kotlin/others/trailing_commas.html"
+            >最終要素にコンマを残しても大丈夫 (Trailing connmas)</a
+          >
+        </li>
+      </ul>
 
-    <p>
-      なるべくセクションごとのまとめを心がけますが、執筆順不同です。誤訳も多分ありますので悪しからず。
-    </p>
+      <h1>忙しい人のための Effective Kotlin -Best Practices-</h1>
+      <p>
+        EffectiveなんちゃらシリーズのKotlin版。まだ日本語版が出版されていませんし、総ページ数400ページ余りとなかなかのボリュームなので、手を出しづらい方もいらっしゃるでしょう。
+        そんな忙しい方のために、要点だけをちょこちょこお届け。
+      </p>
 
-    <h2>Part 1: Good code (良いコードとは)</h2>
-    <h3>Chapter 1: Safety (安全性)</h3>
-    <h3>Chapter 2: Readability (読みやすいコード)</h3>
-    <h2>Part 2: Code design (コード設計)</h2>
-    <h3>Chapter 3: Reusability (再利用性)</h3>
-    コードは再利用しやすいように書こうね、という話。
-    <ul>
-      <li><a href="/kotlin/effective_kotlin/item_19_do_not_repeat_knowledge.html">Do not repeat knowledge
-          (同じ情報は二度書かない)</a></li>
-      <li><a href="/kotlin/effective_kotlin/item_20_do_not_repeat_common_algorithms.html">Do not repeat common
-          algorithms (車輪の再開発はやめよう)</a></li>
-      <li><a
-          href="/kotlin/effective_kotlin/item_21_use_property_delegation_to_extract_common_property_patterns.html">Use
-          property delegation to extract common property patterns (共通プロパティ構造を抽出するためのプロパティ委譲)</a></li>
-      <li><a href="/kotlin/effective_kotlin/item_22_use_generics_when_implementing_common_algorithms.html">Use generics
-          when implementing common algorithms (ジェネリクスによるアルゴリズムの共通化)</a></li>
-      <li><a href="/kotlin/effective_kotlin/item_23_avoid_shadowing_type_parameters.html">Avoid shadowing type
-          parameters (型パラメータは明示的に)</a></li>
-      <li><a href="/kotlin/effective_kotlin/item_24_consider_variance_for_generic_types.html">Consider variance for
-          generic types (ジェネリック型への変性の導入)</a></li>
-      <li><a
-          href="/kotlin/effective_kotlin/item_25_reuse_between_different_platforms_by_extracting_common_modules.html">Reuse
-          different platforms by extracting common modules (共通モジュールによるマルチプラットフォーム化)</a></li>
-    </ul>
-    <h3>Chapter 4: Abstraction design (抽象的設計)</h3>
-    <h3>Chapter 5: Object creation (インスタンス生成)</h3>
-    <h3>Chapter 6: Class design (クラス設計)</h3>
-    <h2>Part 3: Efficiency (効率の良いコード)</h2>
-    <h3>Chapter 7: Make it cheap (無駄を省こう)</h3>
-    <h3>Chapter 8: Efficient collection processing (上手なコレクションの扱い方)</h3>
-  </div>
-</body>
+      <p>
+        なるべくセクションごとのまとめを心がけますが、執筆順不同です。誤訳も多分ありますので悪しからず。
+      </p>
 
+      <h2>Part 1: Good code (良いコードとは)</h2>
+      <h3>Chapter 1: Safety (安全性)</h3>
+      <h3>Chapter 2: Readability (読みやすいコード)</h3>
+      <h2>Part 2: Code design (コード設計)</h2>
+      <h3>Chapter 3: Reusability (再利用性)</h3>
+      コードは再利用しやすいように書こうね、という話。
+      <ul>
+        <li>
+          <a
+            href="/kotlin/effective_kotlin/item_19_do_not_repeat_knowledge.html"
+            >Do not repeat knowledge (同じ情報は二度書かない)</a
+          >
+        </li>
+        <li>
+          <a
+            href="/kotlin/effective_kotlin/item_20_do_not_repeat_common_algorithms.html"
+            >Do not repeat common algorithms (車輪の再開発はやめよう)</a
+          >
+        </li>
+        <li>
+          <a
+            href="/kotlin/effective_kotlin/item_21_use_property_delegation_to_extract_common_property_patterns.html"
+            >Use property delegation to extract common property patterns
+            (共通プロパティ構造を抽出するためのプロパティ委譲)</a
+          >
+        </li>
+        <li>
+          <a
+            href="/kotlin/effective_kotlin/item_22_use_generics_when_implementing_common_algorithms.html"
+            >Use generics when implementing common algorithms
+            (ジェネリクスによるアルゴリズムの共通化)</a
+          >
+        </li>
+        <li>
+          <a
+            href="/kotlin/effective_kotlin/item_23_avoid_shadowing_type_parameters.html"
+            >Avoid shadowing type parameters (型パラメータは明示的に)</a
+          >
+        </li>
+        <li>
+          <a
+            href="/kotlin/effective_kotlin/item_24_consider_variance_for_generic_types.html"
+            >Consider variance for generic types
+            (ジェネリック型への変性の導入)</a
+          >
+        </li>
+        <li>
+          <a
+            href="/kotlin/effective_kotlin/item_25_reuse_between_different_platforms_by_extracting_common_modules.html"
+            >Reuse different platforms by extracting common modules
+            (共通モジュールによるマルチプラットフォーム化)</a
+          >
+        </li>
+      </ul>
+      <h3>Chapter 4: Abstraction design (抽象的設計)</h3>
+      <h3>Chapter 5: Object creation (インスタンス生成)</h3>
+      <h3>Chapter 6: Class design (クラス設計)</h3>
+      <h2>Part 3: Efficiency (効率の良いコード)</h2>
+      <h3>Chapter 7: Make it cheap (無駄を省こう)</h3>
+      <h3>
+        Chapter 8: Efficient collection processing (上手なコレクションの扱い方)
+      </h3>
+    </div>
+  </body>
 </html>

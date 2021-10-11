@@ -4,6 +4,16 @@
       "date": {
         "year": 2021,
         "month": 10,
+        "date": 11
+      },
+      "title": "Trailing commas",
+      "description": "最終要素にもコンマをつけておいて大丈夫",
+      "article_url": "/kotlin/others/trailing_commas.html"
+    },
+    {
+      "date": {
+        "year": 2021,
+        "month": 10,
         "date": 4
       },
       "title": "Do not repeat knowledge",

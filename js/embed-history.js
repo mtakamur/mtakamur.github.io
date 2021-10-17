@@ -9,12 +9,12 @@ function embedHistory() {
   // Functions called in the main sequence.
   function makeContents(contentsJsonObject) {
     for (let i = 0; i < contentsJsonObject.length; i++) {
-      let newRangeInMillis = 2629800000; // 1 month.
+      let newRangeInSecond = 2678400000; // 1 month.
       let data = contentsJsonObject[i];
       let isNew = false;
       let dateObject = new Date(
         data.date.year,
-        data.date.month,
+        data.date.month - 1, // as month index starts from 0
         data.date.date
       );
       let currentDate = new Date();
@@ -24,7 +24,7 @@ function embedHistory() {
         data.date.date
       );
 
-      if (currentDate.getTime() - newRangeInMillis <= dateObject.getTime())
+      if (currentDate.getTime() - newRangeInSecond <= dateObject.getTime())
         isNew = true;
 
       writeToDocument(

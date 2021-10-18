@@ -21,19 +21,24 @@
     ><![endif]-->
   </head>
 
+  <!--
   <script type="text/javascript" src="/js/embed-date.js"></script>
-  <script src="/js/highlight/highlight.pack.js"></script>
   <script src="/js/embed-content-list.js"></script>
+  -->
+  <script src="/js/highlight/highlight.pack.js"></script>
+  <script
+    type="module"
+    src="/js/article-constructor/construct-article.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="/js/article-constructor/construct-body-header.js"
+  ></script>
   <script type="text/javascript">
     window.addEventListener(
       "load",
       function () {
-        embedDate(
-          "kotlin",
-          "effective_kotlin",
-          "item_19_do_not_repeat_knowledge"
-        );
-        embedContentList();
+        constructBodyHeader();
       },
       false
     );
@@ -53,13 +58,6 @@
       </ul>
     </div>
     <div id="container">
-      <header id="body_header">
-        <div id="logo" style="text-align: center">
-          <a href="/index.html">
-            <img src="/images/logo.png" style="width: 150px; height: 46px"
-          /></a>
-        </div>
-      </header>
       <div id="date" style="text-align: right"></div>
     </div>
   </body>

@@ -1,16 +1,18 @@
 function constructBodyHeader() {
-  let containerId = "container";
-  let logoImage = "/images/logo.png";
-  let bodyHeaderTemplate = `
+  let CONTAINER_ID = "container";
+  let LOGO_IMAGE_PATH = "/images/logo.png";
+  let BODY_HEADER_TEMPLATE = `
       <header id="body_header">
         <div id="logo" style="text-align: center">
           <a href="/index.html">
-            <img src="${logoImage}" style="width: 150px; height: 46px"
+            <img src="${LOGO_IMAGE_PATH}" style="width: 150px; height: 46px"
           /></a>
         </div>
       </header>
   `;
   document
-    .getElementById(containerId)
-    .insertAdjacentHTML("afterbegin", bodyHeaderTemplate);
+    .getElementById(CONTAINER_ID)
+    .insertAdjacentHTML("afterbegin", BODY_HEADER_TEMPLATE);
 }
+
+export { constructBodyHeader };

@@ -3,14 +3,15 @@
  */
 function constructDate(...path) {
   let JSON_PATH = "/js/json/articles.json";
-  let EMBEDDING_TARGET = "date";
+  let CONTAINER_ID = "container";
+  let POSITION = "afterbegin";
 
   // Input path to content in JSON as arguments.
   fetchJson(JSON_PATH)
     .then((data) => getDateNode(data, path))
     .then((dateNode) => makeDateString(dateNode))
     .then((embeddingString) =>
-      writeDateToDocument(EMBEDDING_TARGET, embeddingString)
+      writeDateToDocument(CONTAINER_ID, embeddingString)
     );
 
   // Functions called in the main sequence.
@@ -18,8 +19,9 @@ function constructDate(...path) {
     let dateNode = data;
 
     // Reach to list of article node.
-    for (let i = 0; i < path.length - 1; i++) {
-      let nextNode = path[i];
+    for (let i = 0; i < path[0].length; i++) {
+      console.log(path[0][i]);
+      let nextNode = path[0];
       dateNode = dateNode[nextNode];
     }
 
@@ -58,6 +60,8 @@ function constructDate(...path) {
   function writeDateToDocument(embeddingTargetId, content) {
     document
       .getElementById(embeddingTargetId)
-      .insertAdjacentHTML("beforeend", content);
+      .insertAdjacentHTML(POSITION, content);
   }
 }
+
+export { constructDate };

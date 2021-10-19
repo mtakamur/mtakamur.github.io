@@ -1,1 +1,3 @@
-export function constructHeader() {}
+function constructHeader() {}
+
+export { constructHeader };

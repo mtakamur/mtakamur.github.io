@@ -5,29 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>πの実</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="忙しい人のための Effective Kotlin 超要約 Item 19: Do not repeat knowledge"
-    />
-    <meta
-      name="keywords"
-      content="Kotlin, Effective Kotlin, 忙しい人のための"
-    />
+    <meta name="description" content="Description" />
+    <meta name="keywords" content="key, words" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/js/highlight/styles/darcula.css" />
   </head>
 
+  <!-- Load module to construct common contents of articles -->
+  <script src="/js/highlight/highlight.pack.js"></script>
+  <script type="module">
+    import { constructArticle } from "/js/article-constructor/construct-article.js";
+    constructArticle(["kotlin", "struggled"], "by_lazy_init");
+    hljs.highlightAll();
+  </script>
+
   <body id="body">
-    <div id="container">
-      <div id="date" style="text-align: right"></div>
-    </div>
+    <div id="container"></div>
   </body>
 </html>
-
-<!-- Load module to construct common contents of articles -->
-<script src="/js/highlight/highlight.pack.js"></script>
-<script type="module">
-  import { constructArticle } from "/js/article-constructor/construct-article.js";
-  constructArticle("kotlin", "struggled", "by_lazy_init");
-  hljs.initHighlightingOnLoad();
-</script>

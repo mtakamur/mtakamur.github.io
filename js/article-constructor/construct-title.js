@@ -1,7 +1,7 @@
 function constructTitle(article) {
   let CONTAINER_ID = "container";
   let POSITION_IN_CONTAINER = "afterbegin";
-  let STYLE = `style="text-align: center"`;
+  let STYLE = `style="text-align: left"`;
   let TITLE_TEMPLATE = `
 	<h1 ${STYLE}>${article.title}</h1>
 	`;

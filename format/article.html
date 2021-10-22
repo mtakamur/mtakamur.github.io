@@ -12,11 +12,9 @@
   </head>
 
   <!-- Load module to construct common contents of articles -->
-  <script src="/js/highlight/highlight.pack.js"></script>
   <script type="module">
     import { constructArticle } from "/js/article-constructor/construct-article.js";
     constructArticle(["kotlin", "struggled"], "by_lazy_init");
-    hljs.highlightAll();
   </script>
 
   <body id="body">

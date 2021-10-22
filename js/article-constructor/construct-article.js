@@ -4,6 +4,7 @@ import { constructHeader } from "/js/article-constructor/construct-header.js";
 import { constructMenuBar } from "/js/article-constructor/construct-menu-bar.js";
 import { constructBodyHeader } from "/js/article-constructor/construct-body-header.js";
 import { constructTitle } from "/js/article-constructor/construct-title.js";
+import { hljs } from "/js/highlight/highlight.pack.js";
 
 /**
  * Script to construct article page (common contents).
@@ -15,6 +16,7 @@ function constructArticle(articleNodePath, articleId) {
     constructDate(article);
     constructBodyHeader();
     constructMenuBar();
+    hljs.highlightAll();
   });
 }
 

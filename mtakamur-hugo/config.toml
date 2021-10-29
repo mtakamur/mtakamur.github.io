@@ -1,0 +1,52 @@
+baseURL = "https://mtakamur.github.io/"
+languageCode = "en-us"
+title = "Pi"
+author= "mtakamur"
+copyright = "&copy; 2021. mtakamur all rights reserved."
+theme = "blackburn"
+canonifyurls = true
+paginate = 10
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[params]
+  subtitle = "A test subtitle"
+  brand = "blackburn"
+  googleAnalytics = "Analytics"
+  disqus = "disqus"
+  highlightjs = "androidstudio"
+  highlightjs_extra_languages = ["yaml"]
+  dateFormat = "02 Jan 2021, 15:04"
+
+[menu]
+  [[menu.main]]
+    name = "Home Pi"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 1
+    identifier = "home"
+    url = "/"
+
+  [[menu.main]]
+    name = "Posts"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 2
+    identifier = "post"
+    url = "/post/"
+
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 3
+    identifier = "about"
+    url = "/about/"
+
+  [[menu.main]]
+    name = "Contact"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 4
+    url = "/contact/"
+
+  [[social]]
+    github = "mtakamur"

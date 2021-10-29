@@ -1,0 +1,3 @@
+[submodule "mtakamur-hugo/themes/doks"]
+	path = mtakamur-hugo/themes/doks
+	url = https://github.com/h-enk/doks.git

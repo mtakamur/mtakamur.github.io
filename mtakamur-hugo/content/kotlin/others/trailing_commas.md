@@ -1,6 +1,7 @@
 ---
 title: "Trailing commas"
 date: 2021-10-31T01:28:27+09:00
+LastModifierDisplayName: = "mtakamur"
 draft: false
 ---
 

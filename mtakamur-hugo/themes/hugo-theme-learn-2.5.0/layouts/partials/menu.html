@@ -10,6 +10,15 @@
         {{ partial "search.html" . }}
     {{end}}
   </div>
+  {{- if not .Site.Params.disableLandingPageButton }}
+    <div id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href="{{ .Site.Params.landingPageURL | default "/" | relLangURL }}">{{ .Site.Params.landingPageName | default `<i class="fas fa-home"></i> Home` | safeHTML }}</a>
+        </li>
+      </ul>
+    </div>
+  {{end}}
 
     <div class="highlightable">
     <ul class="topics">

@@ -1,9 +1,7 @@
 ---
-title: "Home"
-date: 2021-10-30T09:38:18+09:00
+title: "Pi fruit"
+date: 2021-10-30T11:34:05+09:00
 draft: false
 ---
 
-# Top page
-
-This is the top page.
+# Pi fruit

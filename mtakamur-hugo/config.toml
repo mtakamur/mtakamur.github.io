@@ -3,7 +3,7 @@ canonifyURLs = true
 languageCode = "en-us"
 title = "Pi fruit"
 author = "mtakamur"
-theme = "relearn"
+theme = "hugo-theme-learn"
 
 [params]
   # This controls whether submenus will be expanded (true), or collapsed (false) in the

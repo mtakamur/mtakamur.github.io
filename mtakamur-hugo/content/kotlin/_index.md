@@ -1,6 +1,7 @@
 ---
 title: "Kotlin"
 date: 2021-10-30T11:39:22+09:00
+weight: 400
 draft: false
 ---
 

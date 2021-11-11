@@ -1,0 +1,3 @@
+[submodule "mtakamur-hugo/themes/hugo-theme-learn"]
+	path = mtakamur-hugo/themes/hugo-theme-learn
+	url = git@github.com:mtakamur/hugo-theme-learn.git

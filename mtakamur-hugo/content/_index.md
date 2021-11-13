@@ -5,3 +5,7 @@ draft: false
 ---
 
 # Pi fruit
+
+## Kotlin
+
+## 忙しい人のための Effective Kotlin

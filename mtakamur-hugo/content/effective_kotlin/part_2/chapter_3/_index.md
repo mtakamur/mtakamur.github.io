@@ -1,6 +1,7 @@
 ---
-title: "Chapter 3: Reusability"
+title: "Reusability"
 menuTitle: "Chapter 3: Reusability"
+weight: 30
 date: 2021-10-31T22:51:26+09:00
 draft: false
 ---

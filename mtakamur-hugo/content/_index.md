@@ -6,6 +6,6 @@ draft: false
 
 # Pi fruit
 
-## Kotlin
+## [Kotlin](/kotlin)
 
-## 忙しい人のための Effective Kotlin
+## [忙しい人のための Effective Kotlin](/effective_kotlin)

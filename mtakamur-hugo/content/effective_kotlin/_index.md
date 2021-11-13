@@ -12,8 +12,8 @@ Effective なんちゃらシリーズの Kotlin 版。まだ日本語版が出�
 
 なるべくセクションごとのまとめを心がけますが、執筆順不同です。誤訳も多分ありますので悪しからず。
 
-## Part 1: Good code (良いコードとは)
+## [Part 1: Good code (良いコードとは)](/effective_kotlin/part_1)
 
-## Part 2: Code design (コード設計)
+## [Part 2: Code design (コード設計)](/effective_kotlin/part_2)
 
-## Part 3: Efficiency (効率の良いコード)
+## [Part 3: Efficiency (効率の良いコード)](/effective_kotlin/part_3)

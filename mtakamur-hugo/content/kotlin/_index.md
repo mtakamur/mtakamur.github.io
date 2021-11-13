@@ -5,13 +5,14 @@ weight: 400
 draft: false
 ---
 
-### ハマったこと
+## [ハマったこと](/kotlin/struggled)
 
-<!-- -[by lazy による遅延初期化]() -->
+思った通りにならなくて、解決に時間がかかってしまったこと
 
-- [コレクションの deep copy が欲しい](/kotlin/struggled/collection_deep_copy)
-- [data class copy() の対象](/kotlin/struggled/target_of_copy)
+---
 
-### その他
+## [その他](/kotlin/others)
 
-- [最終要素にコンマを残しても大丈夫 (Trainling commas)](/kotlin/others/trailing_commas)
+どこのジャンルに入れていいかわからなかった、けど知っておくと便利なこと
+
+---

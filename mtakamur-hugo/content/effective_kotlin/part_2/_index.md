@@ -5,7 +5,7 @@ date: 2021-10-31T22:46:27+09:00
 draft: false
 ---
 
-### Chapter 3: Reusability (再利用性)
+### [Chapter 3: Reusability (再利用性)](/effective_kotlin/part_2/chapter_3)
 
 ### Chapter 4: Abstraction design (抽象的設計)
 

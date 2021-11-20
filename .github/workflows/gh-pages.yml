@@ -22,16 +22,11 @@ jobs:
       - name: Build
         run: hugo --minify --source ./mtakamur-hugo/
 
-      #   - name: Deploy
-      #     uses: peaceiris/actions-gh-pages@v3
-      #     with:
-      #       github_token: ${{ secrets.GITHUB_TOKEN }}
-      #       publish_dir: ./public
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           external_repository: mtakamur/mtakamur.github.io
           publish_branch: main
-          publish_dir: ./docs
-          #cname: nikaera.com
+          publish_dir: ./mtakamur-hugo/publish # Source directory
+          destination_dir: ./docs

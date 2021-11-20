@@ -1,3 +1,0 @@
-function constructHeader() {}
-
-export { constructHeader };

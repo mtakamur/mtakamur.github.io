@@ -1,0 +1,114 @@
+<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.85.0"><meta name=description content="Simple notes for software engineering"><meta name=author content="mtakamur"><link rel=icon href=https://mtakamur.github.io/images/favicon.png type=image/png><title>Item 2: Minimize the scope of variables(変数のスコープは最小化する) - Pi fruit</title><link href=https://mtakamur.github.io/css/nucleus.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/fontawesome-all.min.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/hybrid.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/featherlight.min.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/perfect-scrollbar.min.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/auto-complete.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/atom-one-dark-reasonable.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/theme.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/tabs.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/hugo-theme.css?1639993206 rel=stylesheet><link href=https://mtakamur.github.io/css/theme-blue.css?1639993206 rel=stylesheet><script src=https://mtakamur.github.io/js/jquery-3.3.1.min.js?1639993206></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=https://mtakamur.github.io/effective_kotlin/part_1/chapter_1/item_2_minimize_the_scope_of_variables/><nav id=sidebar><div id=header-wrapper><div id=header><a id=logo href=https://mtakamur.github.io/><img src=https://mtakamur.github.io/images/logo-gray.svg><br>Pi Fruit</a></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label>
+<input data-search-input id=search-by type=search placeholder=Search...>
+<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=https://mtakamur.github.io/js/lunr.min.js?1639993206></script><script type=text/javascript src=https://mtakamur.github.io/js/auto-complete.js?1639993206></script><script type=text/javascript>var baseurl="https://mtakamur.github.io/"</script><script type=text/javascript src=https://mtakamur.github.io/js/search.js?1639993206></script></div><section id=homelinks><ul><li><a class=padding href=https://mtakamur.github.io/><i class="fas fa-home"></i> Home</a></li></ul></section><div class=highlightable><ul class=topics><li data-nav-id=/kotlin/ title=Kotlin class=dd-item><a href=https://mtakamur.github.io/kotlin/>Kotlin</a><ul><li data-nav-id=/kotlin/struggled/ title=ハマったこと class=dd-item><a href=https://mtakamur.github.io/kotlin/struggled/>ハマったこと</a><ul><li data-nav-id=/kotlin/struggled/collection_deep_copy/ title="コレクションの deep copy が欲しい" class=dd-item><a href=https://mtakamur.github.io/kotlin/struggled/collection_deep_copy/>コレクションの deep copy が欲しい</a></li><li data-nav-id=/kotlin/struggled/target_of_copy/ title="data class copy() の対象" class=dd-item><a href=https://mtakamur.github.io/kotlin/struggled/target_of_copy/>data class copy() の対象</a></li></ul></li><li data-nav-id=/kotlin/others/ title=その他 class=dd-item><a href=https://mtakamur.github.io/kotlin/others/>その他</a><ul><li data-nav-id=/kotlin/others/trailing_commas/ title="Trailing commas" class=dd-item><a href=https://mtakamur.github.io/kotlin/others/trailing_commas/>Trailing commas</a></li></ul></li></ul></li><li data-nav-id=/effective_kotlin/ title="忙しい人のための Effective Kotlin" class="dd-item
+parent"><a href=https://mtakamur.github.io/effective_kotlin/>忙しい人のための Effective Kotlin</a><ul><li data-nav-id=/effective_kotlin/part_1/ title="Part 1: Good code(良いコードとは?)" class="dd-item
+parent"><a href=https://mtakamur.github.io/effective_kotlin/part_1/>Part 1: Good code</a><ul><li data-nav-id=/effective_kotlin/part_1/chapter_1/ title="Chapter 1: Safety(安全なコード)" class="dd-item
+parent"><a href=https://mtakamur.github.io/effective_kotlin/part_1/chapter_1/>Chapter 1: Safety</a><ul><li data-nav-id=/effective_kotlin/part_1/chapter_1/item_1_limit_mutability/ title="Item 1: Limit mutability(やたらと変更可能にしない)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_1/chapter_1/item_1_limit_mutability/>Item 1: Limit mutability(やたらと変更可能にしない)</a></li><li data-nav-id=/effective_kotlin/part_1/chapter_1/item_2_minimize_the_scope_of_variables/ title="Item 2: Minimize the scope of variables(変数のスコープは最小化する)" class="dd-item active"><a href=https://mtakamur.github.io/effective_kotlin/part_1/chapter_1/item_2_minimize_the_scope_of_variables/>Item 2: Minimize the scope of variables(変数のスコープは最小化する)</a></li></ul></li><li data-nav-id=/effective_kotlin/part_1/chapter_2/ title="Chapter 2: Readability(読みやすいコード)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_1/chapter_2/>Chapter 2: Readability</a></li></ul></li><li data-nav-id=/effective_kotlin/part_2/ title="Part 2: Code design(コード設計)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_2/>Part 2: Code design</a><ul><li data-nav-id=/effective_kotlin/part_2/chapter_3/ title="Chapter 3: Reusability(再利用性)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_2/chapter_3/>Chapter 3: Reusability</a><ul><li data-nav-id=/effective_kotlin/part_2/chapter_3/item_19_do_not_repeat_knowledge/ title="Item 19: do not repeat knowledge" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_2/chapter_3/item_19_do_not_repeat_knowledge/>Item 19: do not repeat knowledge</a></li></ul></li><li data-nav-id=/effective_kotlin/part_2/chapter_4/ title="Chapter 4: Abstraction design(抽象化設計)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_2/chapter_4/>Chapter 4: Abstraction design</a></li><li data-nav-id=/effective_kotlin/part_2/chapter_5/ title="Chapter 5: Object creation(インスタンス生成)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_2/chapter_5/>Chapter 5: Object creation</a></li><li data-nav-id=/effective_kotlin/part_2/chapter_6/ title="Chapter 6: Class design(クラス設計)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_2/chapter_6/>Chapter 6: Class design</a></li></ul></li><li data-nav-id=/effective_kotlin/part_3/ title="Part 3: Efficiency(効率の良いコード)" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_3/>Part 3: Efficiency</a><ul><li data-nav-id=/effective_kotlin/part_3/chapter_7/ title="Make it cheap" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_3/chapter_7/>Chapter 7 Make it cheap</a></li><li data-nav-id=/effective_kotlin/part_3/chapter_8/ title="Efficient collection processing" class=dd-item><a href=https://mtakamur.github.io/effective_kotlin/part_3/chapter_8/>Chapter 8: Efficient collection processing</a></li></ul></li></ul></li></ul><section id=footer><p>Built with <a href=https://github.com/matcornic/hugo-theme-learn><i class="fas fa-heart"></i></a> from <a href=https://getgrav.org>Grav</a> and <a href=https://gohugo.io/>Hugo</a></p></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span>
+<span id=toc-menu><i class="fas fa-list-alt"></i></span>
+<span class=links><a href=https://mtakamur.github.io/>Pi fruit</a> > <a href=https://mtakamur.github.io/effective_kotlin/>忙しい人のための Effective Kotlin</a> > <a href=https://mtakamur.github.io/effective_kotlin/part_1/>Part 1: Good code(良いコードとは?)</a> > <a href=https://mtakamur.github.io/effective_kotlin/part_1/chapter_1/>Chapter 1: Safety(安全なコード)</a> > Item 2: Minimize the scope of variables(変数のスコープは最小化する)</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><ul><li><a href=#capturing-ずっと参照され続ける変数>Capturing (ずっと参照され続ける変数)</a></li></ul></li></ul></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Item 2: Minimize the scope of variables(変数のスコープは最小化する)</h1><p>更新日: 2021/12/20</p><h1 id=まとめ>まとめ</h1><ul><li><p>変数のスコープはできるだけ小さくしましょう</p><ul><li>プロパティにする必要ありますか？ローカル変数で置き換えられないでしょうか？</li><li>変数の宣言はできるだけ内側のスコープで。ループの中でしかつかなわいのであればループブロックの中で</li></ul></li><li><p>変数スコープを小さくするメリットは次の通りです</p><ul><li>変数が影響する範囲を小さくすることで、コードが読みやすくなる(特に状態変化を追いかける必要がある<code>var</code>変数の場合は)</li><li>変数の利用範囲を狭めることで、本来の目的外で使われることを防げる</li><li>想定外の箇所で参照されるリスクを減らせる (Capturing 防止)</li></ul></li><li><p>変数は宣言と同時にできるだけ初期化しましょう。if 文や Elvis operator を上手に使いましょう。</p></li></ul><hr><h1 id=ちょっと詳しく>ちょっと詳しく</h1><p><code>val</code>や<code>var</code>で定義された変数は、それらが定義されたスコープの中でのみ参照することができます。
+変数のスコープは、トップレベル定義の変数を除き、主に<code>{}</code>で囲まれたブロックにより形作られます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> numbers = listOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>)
+<span style=color:#66d9ef>var</span> number: Int <span style=color:#75715e>// number は forブロックの中からも外からも参照できる
+</span><span style=color:#75715e></span><span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> numbers.indices) { <span style=color:#75715e>// iのスコープはforブロック内。forブロックの外側では参照できない。
+</span><span style=color:#75715e></span>  number = numbers[i]
+  println(<span style=color:#e6db74>&#34;Number at </span><span style=color:#e6db74>$i</span><span style=color:#e6db74> is </span><span style=color:#e6db74>$number</span><span style=color:#e6db74>&#34;</span>)
+}
+</code></pre></div><p>上の例では、変数として<code>numbers: List&lt;Int></code>, <code>number: Int</code>, <code>i: Int</code>の 3 つが利用されていますが、<code>number</code>は明らかに大きすぎるスコープで定義されています。
+<code>number</code>は、&ldquo;for 文中で、numbers から取り出した値の 1 つを表す"意図での変数ですので、for ブロック内でのみ利用できれば十分なはずです。
+したがって、次の書き方のほうが良いです。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> numbers = listOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>)
+<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> numbers.indices) { <span style=color:#75715e>// iのスコープはforブロック内。forブロックの外側では参照できない。
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>val</span> number = numbers[i] <span style=color:#75715e>// スコープをforブロックに限定。さらに定義と同時に初期化。
+</span><span style=color:#75715e></span>  println(<span style=color:#e6db74>&#34;Number at </span><span style=color:#e6db74>$i</span><span style=color:#e6db74> is </span><span style=color:#e6db74>$number</span><span style=color:#e6db74>&#34;</span>)
+}
+</code></pre></div><p>この例では、スコープを for ブロックに限定することに加えてもう 1 つ工夫をしています。
+変数の定義と同時に初期化していることです(さらに immutable な<code>val</code>にできる)。
+<code>number</code>がどんな状態なのかは、その定義のたった 1 行読めば十分理解できますので、明らかに先の例よりも読みやすくなっているかと思います。</p><p><code>number</code>の状態、すなわち何を表す何が代入されいているのかが見やすくなるのはもちろんですが、<code>number</code>変数の<strong>意味を限定する</strong>こともできています。
+先の例での<code>number</code>変数は、&ldquo;何かしらの数字を表す"という意味しか与えられません。なぜなら for ブロックの外でも変更されたり参照されたりする可能性があるからです(もちろん、for ブロックの中だけを見れば"for 文中で、numbers から取り出した値の 1 つを表す"という意図はつかめる)。</p><p>以上より、<strong>変数のスコープをできるだけ小さくすること</strong>には、次のメリットがあると考えられます。</p><ul><li>変数の状態が小さい範囲で確定するので、コードが読みやすくシンプルになる</li><li>スコープを限定することは意味を限定することに等しい。1 つの変数を複数の意味で過剰に利用することを防止できる。</li></ul><h3 id=capturing-ずっと参照され続ける変数>Capturing (ずっと参照され続ける変数)</h3><p>変数を必要以上に大きなスコープで定義してしまうと、思わぬ不具合を引き起こす場合があります。
+この節では、変数の Capturing について紹介します。</p><p>例として、&ldquo;エラトステネスのふるい"による、素数計算を取り上げます。
+素数とは、1 と自分自身以外で割り切ることができない 2 以上の自然数のことですが、次のようなアルゴリズムによってシンプルに計算することができます。</p><ol><li>2 から始まる自然数の昇順 List を用意します(<code>numbers = listOf(2, 3, 4, 5, ...)</code>)</li><li>初めの要素は 2 であり、これは素数ですので素数としてメモしておきます</li><li>2 で割り切れる自然数はもはや素数ではありませんので、<code>numbers</code>の要素のうち、2 で割り切れる数はすべて捨てます</li><li>2 で割り切れる数を取り除き切った段階で、<code>numbers</code>の次の要素は 3 です</li><li>3 は次の素数ですので、またメモしておきます</li><li>3 で割り切れる数はやはり素数ではありえませんので、<code>numbers</code>からは捨てます</li><li><code>numbers</code>の次の先頭の要素は 5 で、これは次の素数になります</li><li>5 で割り切れる数は素数ではありえませんので…</li></ol><p>という計算を繰り返していくと、<code>numbers</code>の先頭の要素は常に素数となり、次々と素数を見つけることができます。
+ところで、素数は無限にあることがわかっているため、実際に<code>List&lt;Int></code>によって計算していくと、計算が終わることはありません。
+そこで、<code>Sequence</code>による遅延計算を行うことで、いつまでたっても計算が終わらないという状況を避けることができます(ただし、とても大きい素数を見つけようとするとおそろしく時間がかかります)。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>primeNumbersBySieveOfEratosthenes</span>(): Sequence&lt;Int&gt; = sequence {
+    <span style=color:#66d9ef>var</span> numbers = generateSequence(<span style=color:#ae81ff>2</span>) { <span style=color:#66d9ef>it</span> + <span style=color:#ae81ff>1</span> }
+    <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
+        <span style=color:#66d9ef>val</span> prime = numbers.first() <span style=color:#75715e>// ループの度に変数生成しているのムダっぽい?
+</span><span style=color:#75715e></span>        yield(prime)
+        numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }
+    }
+}
+<span style=color:#75715e>// はじめの10個は [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+</span></code></pre></div><p>ところで、<code>while</code>ループの中で毎回変数<code>prime</code>を生成していますが、なんだか無駄っぽくないでしょうか。
+変数<code>prime</code>は、ループの外で<code>var</code>変数として定義して、無駄を省いたのが次のコードです。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>primeNumbersBySieveOfEratosthenes</span>(): Sequence&lt;Int&gt; = sequence {
+    <span style=color:#66d9ef>var</span> numbers = generateSequence(<span style=color:#ae81ff>2</span>) { <span style=color:#66d9ef>it</span> + <span style=color:#ae81ff>1</span> }
+
+    <span style=color:#66d9ef>var</span> prime: Int
+    <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
+        prime = numbers.first()
+        yield(prime)
+        numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }
+    }
+}
+<span style=color:#75715e>// はじめの10個は [2, 3, 5, 6, 7, 8, 9, 10, 11, 12]
+</span></code></pre></div><p>効率化したつもりでしたが、肝心の結果が間違っていることがわかります。
+これが、変数の Capturing によって起きた問題です。</p><p>何が起こっているのかを正しく理解するには Kotlin の<code>Sequence</code>の動作を理解している必要がありますが、簡単に紹介します(ちなみに Effective Kotlin 原文の説明も間違っています)。
+<code>Sequence</code>は値の計算を、その値が要求される時点まで遅延します。
+そのため、素数計算のようないつまでたっても終わることのない値の計算でも有限の値であれば有限の時間で計算することができるわけです。
+上記で紹介した<code>Sequence</code>による素数計算と(ほぼ)等価なコードを初めの 5 個の素数について書いてみると次のようになります。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>naiveSieveOfEratosthenes</span>(): List&lt;Int&gt; {
+    <span style=color:#66d9ef>var</span> numbers = mutableListOf(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>11</span>)
+    <span style=color:#66d9ef>var</span> primes = mutableListOf&lt;Int&gt;()
+
+    <span style=color:#66d9ef>val</span> prime1 = numbers.first()
+    primes.add(prime1)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime1 <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    <span style=color:#66d9ef>val</span> prime2 = numbers.first()
+    primes.add(prime2)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime2 <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    <span style=color:#66d9ef>val</span> prime3 = numbers.first()
+    primes.add(prime3)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime3 <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    <span style=color:#66d9ef>val</span> prime4 = numbers.first()
+    primes.add(prime4)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime4 <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    <span style=color:#66d9ef>val</span> prime5 = numbers.first()
+    primes.add(prime5)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime5 <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    <span style=color:#66d9ef>return</span> primes
+}
+</code></pre></div><p>これは、素数探索が上手く動く例です。
+ループを展開して書くと少し分かりやすいですが、ループ内で変数を定義すると、都度新しい変数でフィルタリングされることが分かります。
+フィルタがどんどん追加されていっているイメージです。</p><p>一方、正しく動かない方を始めの 5 つについて展開すると次のようになります。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>naiveSieveOfEratosthenes</span>(): List&lt;Int&gt; {
+    <span style=color:#66d9ef>var</span> numbers = mutableListOf(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>11</span>)
+    <span style=color:#66d9ef>var</span> primes = mutableListOf&lt;Int&gt;()
+    <span style=color:#66d9ef>var</span> prime: Int
+
+    prime = numbers.first()
+    primes.add(prime)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    prime = numbers.first()
+    primes.add(prime)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    prime = numbers.first()
+    primes.add(prime)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    prime = numbers.first()
+    primes.add(prime)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    prime = numbers.first()
+    primes.add(prime)
+    numbers = numbers.drop(<span style=color:#ae81ff>1</span>).filter { <span style=color:#66d9ef>it</span> % prime <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.toMutableList()
+
+    <span style=color:#66d9ef>return</span> primes
+}
+</code></pre></div><p>ループ外で宣言した mutable な変数<code>prime</code>を全ループで使いまわしていることになります。
+これを見ると、<code>{ it % prime != 0 }</code>のフィルターがほぼ意味をなしていないことがよくわかります。
+変数<code>prime</code>の値は、ループごとに常に最新の素数(なのは最初だけですが)で更新されてしまうため、幾十のフィルターを追加しているように見える部分も、実際は<strong>最新の<code>prime</code>で割り切れる数を除外するだけのただ一つのフィルター</strong>になっています。</p><p>このように、スコープを広げるということは、その変数が参照(Capture)される範囲を広げてしまうことになる場合があります。
+さらに、多くの場合 変数の capturing は気づきにくいため、原理的に起こりえなくするのが有効な対策であり、
+その一つの手段が<strong>変数のスコープは最小限にとどめる</strong>ということなのです。</p><footer class=footline></footer></div></div><div id=navigation><a class="nav nav-prev" href=https://mtakamur.github.io/effective_kotlin/part_1/chapter_1/item_1_limit_mutability/ title="Item 1: Limit mutability(やたらと変更可能にしない)"><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=https://mtakamur.github.io/effective_kotlin/part_1/chapter_2/ title="Chapter 2: Readability(読みやすいコード)" style=margin-right:0><i class="fa fa-chevron-right"></i></a></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=https://mtakamur.github.io/js/clipboard.min.js?1639993207></script><script src=https://mtakamur.github.io/js/perfect-scrollbar.min.js?1639993207></script><script src=https://mtakamur.github.io/js/perfect-scrollbar.jquery.min.js?1639993207></script><script src=https://mtakamur.github.io/js/jquery.sticky.js?1639993207></script><script src=https://mtakamur.github.io/js/featherlight.min.js?1639993207></script><script src=https://mtakamur.github.io/js/highlight.pack.js?1639993207></script><script>hljs.initHighlightingOnLoad()</script><script src=https://mtakamur.github.io/js/modernizr.custom-3.6.0.js?1639993207></script><script src=https://mtakamur.github.io/js/learn.js?1639993207></script><script src=https://mtakamur.github.io/js/hugo-learn.js?1639993207></script><script src=https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js></script><script>mermaid.initialize({startOnLoad:!0})</script></body></html>
